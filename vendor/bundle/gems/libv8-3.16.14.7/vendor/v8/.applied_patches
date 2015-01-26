@@ -1,0 +1,3 @@
+/home/vagrant/code/mks/Clique/vendor/bundle/gems/libv8-3.16.14.7/patches/disable-building-tests.patch
+/home/vagrant/code/mks/Clique/vendor/bundle/gems/libv8-3.16.14.7/patches/fPIC-for-static.patch
+/home/vagrant/code/mks/Clique/vendor/bundle/gems/libv8-3.16.14.7/patches/gcc48/gcc48-wno-unused-local-typedefs.patch
