@@ -1,2 +1,28 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<h3>Display an individual question</h3>
+
+<table class='qTable'>
+<td>
+	<button type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @upvotes %></b></div></button>
+<br>
+<button type="button" class="btn btn-danger btn-sm btn-downvote"><div style="font-size:1.5em"<b><%= @downvotes %></b></div></button>
+</td>
+
+<td>
+	Question Content: <%= @content %>
+</td>
+</table>
+
+
+<style>
+	.qTable{
+	font-size:1.5em;
+	}
+</style>
+
+<script>
+  $('.btn-downvote').click(
+  	console.log("downvote clicked")
+  	)
+
+ </script>
+

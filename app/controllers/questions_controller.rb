@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   def create
+	  Question.create(question_params)
+	  redirect_to root_path
   end
 
   def destroy
@@ -9,14 +11,26 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    @questions = Question.all
   end
 
   def new
+    @question = Question.new
   end
 
   def show
+    question = Question.find(params[:id])
+    @content = question['content']
+    @upvotes = question['upvote']
+    @downvotes = question['downvote']
+
   end
 
   def update
+  end
+
+  private
+  def question_params
+	  params.require(:question).permit(:content)
   end
 end
