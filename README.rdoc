@@ -1,4 +1,4 @@
-=H1 Cliqr
+H1 Cliqr
 
 The purpose of this project is increase lecture interactivity and improve learning outcomes by breaking down teacher/student and student/student barriers to communication. Using our app, students can discreetly indicate to a lecture presenter when they have lost track of what the lecturer is teaching.
 
