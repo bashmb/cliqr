@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150127163310) do
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
     t.integer  "user_id"
-    t.string   "content"
+    t.string   "text"
     t.integer  "upvote"
     t.integer  "downvote"
     t.boolean  "vetted?"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150127163310) do
   add_index "downvotes", ["vote_type", "vote_id"], name: "index_downvotes_on_vote_type_and_vote_id"
 
   create_table "questions", force: :cascade do |t|
-    t.string   "content"
+    t.string   "text"
     t.integer  "upvote"
     t.integer  "downvote"
     t.integer  "user_id"
