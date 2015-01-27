@@ -4,11 +4,11 @@ The purpose of this project is increase lecture interactivity and improve learni
 
 Post-lecture visual analysis is available to the lecturer, to determine key points when the subject matter became difficult to follow. Students likewise, have a visual representation of at what point they have difficulty following the subject matter, and can review the question/comment they left at that time. Further questions/comments can be appended during the post-lecture review. All students within the class can offer up answers to other students questions, and questions and answers can be up/down voted by the class, to better represent pertinent questions, and appropriate answers. A lecturer has the ability to also review the questions and answers, and vet a particularly good answer to a question.
 
-bold:List of technologies: 
-- Ruby on Rails /- Backend, Routing
-- jQuery /- Create live feed to interactive, manipulate DOM 
-- HighCharts /- Retrospective charting 
-- Bootstrap /- Front end HTML/CSS framework
+**List of technologies:**
+* **Ruby on Rails** - Backend, Routing
+* **jQuery** - Create live feed to interactive, manipulate DOM 
+* **HighCharts** - Retrospective charting 
+* **Bootstrap** - Front end HTML/CSS framework
 
 List of team members (positions are flexible):
 
