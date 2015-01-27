@@ -24,12 +24,12 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-
+    @questionID = @question['id']
     @questionContent = @question['text']
     @questionUpvotes = @question['upvote']
     @questionDownvotes = @question['downvote']
-    @answers = @question.answers
-
+    @answers = @question.answers.order('upvote - downvote DESC')
+    @newAnswer = Answer.new
   end
 
   def update
@@ -41,6 +41,10 @@ class QuestionsController < ApplicationController
   private
   def question_params
     params.require(:question).permit(:text, :upvote, :downvote)
+  end
+
+  def newAnswer_params
+    params.require(:newAnswer).permit(:text, :upvote, :downvote, :question_id)
   end
 
 
