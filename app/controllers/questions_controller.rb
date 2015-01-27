@@ -2,7 +2,6 @@ class QuestionsController < ApplicationController
   def create
     question = Question.create(question_params)
     redirect_to root_path
-
   end
 
   def destroy
@@ -26,9 +25,10 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
 
-    @questionContent = @question['content']
+    @questionContent = @question['text']
     @questionUpvotes = @question['upvote']
     @questionDownvotes = @question['downvote']
+    @answers = @question.answers
 
   end
 
@@ -43,8 +43,5 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:text, :upvote, :downvote)
   end
 
-  private
-  def question_params
-	  params.require(:question).permit(:content, :upvote, :downvote)
-  end
+
 end

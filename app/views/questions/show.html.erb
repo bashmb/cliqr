@@ -8,24 +8,20 @@
 </td>
 
 <td>
-	Question Content: <%= @questionContent %>
+	<%= @questionContent %>
 </td>
 </table>
 <br>
 <br>
-<%= @answerContent %>
 
+<% @answers.as_json.each do |answer| %>
+	<%= answer['text'] %>
+	<% end %>
 <table>
+
 <tr>
 	<td>
-<%= form_for @answer, url: {action: 'create'} do |f| %>
-	<%= f.label :content %>
-	<%= f.text_area :content %>
-	<%= f.hidden_field :upvote, value: 1 %> 
-	<%= f.hidden_field :downvote, value: 0 %>
-	<%= f.hidden_field :question_id, value:params['id'] %>
-	<%= f.submit :value=>"Submit Answer"%>
-<% end %>
+
 
 </td>
 
