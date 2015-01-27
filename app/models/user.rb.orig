@@ -1,0 +1,13 @@
+class User < ActiveRecord::Base
+  has_many :questions 
+  has_many :answers
+<<<<<<< HEAD
+  has_many :upvotes
+  has_many :downvotes
+=======
+
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :presenter, inclusion: {in: [true, false]}
+>>>>>>> 2e65205d55f65bba783f49c198e104003144351e
+end
