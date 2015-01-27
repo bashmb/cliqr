@@ -1,13 +1,18 @@
 class QuestionsController < ApplicationController
   def create
-	  Question.create(question_params)
-	  redirect_to "questions"
+    question = Question.create(question_params)
+    redirect_to root_path
+
   end
 
   def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to root_path
   end
 
   def edit
+    @question = Question.find(params[:id])
   end
 
   def index
@@ -20,18 +25,22 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+
     @questionContent = @question['content']
     @questionUpvotes = @question['upvote']
     @questionDownvotes = @question['downvote']
 
-    
-    @answer = Answer.find_by question_id:15
-    @answerContent = @answer['content']
-    @answerUpvotes = @answer['upvote']
-    @answerDownvotes = @answer['downvote']
   end
 
   def update
+    @question = Question.find(params[:id])
+    @question.update(question_params)
+    redirect_to root_path
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:text, :upvote, :downvote)
   end
 
   private
