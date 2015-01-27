@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "sessions#new"
+
   get 'answers/create'
 
   get 'answers/destroy'
@@ -48,6 +50,8 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers, only: :index
   end
+
+  resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
