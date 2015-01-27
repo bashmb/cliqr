@@ -1,45 +1,45 @@
 Rails.application.routes.draw do
-  get 'answers/create'
+  # get 'answers/create'
 
-  get 'answers/destroy'
+  # get 'answers/destroy'
 
-  get 'answers/edit'
+  # get 'answers/edit'
 
-  get 'answers/index'
+  # get 'answers/index'
 
-  get 'answers/new'
+  # get 'answers/new'
 
-  get 'answers/show'
+  # get 'answers/show'
 
-  get 'answers/update'
+  # get 'answers/update'
 
-  get 'questions/create'
+  # get 'questions/create'
 
-  get 'questions/destroy'
+  # get 'questions/destroy'
 
-  get 'questions/edit'
+  # get 'questions/edit'
 
-  get 'questions/index'
+  # get 'questions/index'
 
-  get 'questions/new'
+  # get 'questions/new'
 
-  get 'questions/show'
+  # get 'questions/show'
 
-  get 'questions/update'
+  # get 'questions/update'
 
-  get 'users/create'
+  # get 'users/create'
 
-  get 'users/destroy'
+  # get 'users/destroy'
 
-  get 'users/edit'
+  # get 'users/edit'
 
-  get 'users/index'
+  # get 'users/index'
 
-  get 'users/new'
+  # get 'users/new'
 
-  get 'users/show'
+  # get 'users/show'
 
-  get 'users/update'
+  # get 'users/update'
 
   resources :users do
     resources :questions, :answers
