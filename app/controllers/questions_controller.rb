@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def create
+    puts question_params
 	  Question.create(question_params)
 	  redirect_to root_path
   end
@@ -23,7 +24,6 @@ class QuestionsController < ApplicationController
     @content = question['content']
     @upvotes = question['upvote']
     @downvotes = question['downvote']
-
   end
 
   def update
@@ -31,6 +31,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-	  params.require(:question).permit(:content)
+	  params.require(:question).permit(:content, :upvote, :downvote)
   end
 end

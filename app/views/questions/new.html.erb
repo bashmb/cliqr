@@ -3,6 +3,7 @@
 <%= form_for @question, url: {action: 'create'} do |f| %>
 	<%= f.label :content %>
 	<%= f.text_area :content %>
-	<br>
+	<%= f.hidden_field :upvote, value: 1 %> 
+	<%= f.hidden_field :downvote, value: 0 %>
 	<%= f.submit %>
 <% end %>
