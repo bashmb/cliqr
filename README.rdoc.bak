@@ -1,0 +1,86 @@
+= Cliqr
+
+The purpose of this project is increase lecture interactivity and improve learning outcomes by breaking down instructor/student and student/student barriers to communication. Using this app, students can discreetly indicate to a lecture presenter when they have lost track of the lecture subject, while simultaneously having the option to ask a brief question, or make a brief note.. Lecturers, at a glance, are able to ascertain the overall level of comprehension at any given point within the lecture, and are able to take corrective action at that point to clarify a subject point, or solicit questions from the class.
+
+Post-lecture visual analysis is available to the lecturer, to determine key points when the subject matter became difficult to follow. Students likewise, have a visual representation of at what point they have difficulty following the subject matter, and can review the question/comment they left at that time. Further questions/comments can be appended during the post-lecture review. All students within the class can offer up answers to other students questions, and questions and answers can be up/down voted by the class, to better represent pertinent questions, and appropriate answers. A lecturer has the ability to also review the questions and answers, and vet a particularly good answer to a question.
+
+bold:List of technologies: 
+- Ruby on Rails /- Backend, Routing
+- jQuery /- Create live feed to interactive, manipulate DOM 
+- HighCharts /- Retrospective charting 
+- Bootstrap /- Front end HTML/CSS framework
+
+List of team members (positions are flexible):
+
+Brian Atwood - live ‘cluelesses’ module
+Mike Bashour - democratic discussion module
+Glenn Meyer - agile project manager, floats between both modules
+Charles Milam - testing, documentation, democratic discussion module, github issue management
+Nora Neyland - CSS, floating between both modules
+Wireframes:
+
+[to come from Glenn]
+Large view of Idea:
+
+Individual Student Needs and Uses
+
+As a student, I want to be able to let my instructor know in real time and without disrupting the lecture when I am lost.
+As a student, I want to be able to know what questions other students have.
+As a student, I want to be recognized when I assist another student.
+As a student, I want to be able to look back on a prior lecture to see what was discussed.
+As a student, I want to be able to look back on a prior lecture to see where I was lost.
+As a student, I want to be able to tie questions to specific points in lecture
+As a student, I want to have a clear and accurate record of prior lectures.
+Instructor Needs and Uses
+
+As an instructor, I want to know in real time when I have lost my students.
+As an instructor, I want to receive actionable feedback to improve my lectures.
+As an instructor, I want to be able to circle back on a topic that students did not retain before the entire lecture derails.
+As an instructor, I want to be able to provide individualized feedback and assistance to my students.
+As an instructor, I want to promote and incentivize constructive peer to peer education.
+As an instructor, I want to be able to edit prior lectures in order to make the shared record reflect the material in a clear and accurate manner.
+Big overall needs
+
+Real time indicators of lecture effectiveness
+Complete and accurate record of prior lectures (Lecture, Slides, and Questions)
+Feedback regarding individual and collective areas of confusion
+Democratic question and answer system that can be accessed during and post-lecture
+Incentivized peer to peer assistance
+Usage Vignettes
+
+Christy, a college sophomore in Organic Chemistry with 175 other students realized she has gotten lost during today’s lecture. She ‘rewinds’ the live transcript of the lecture to try to catch up, realizes she still doesn’t quite get it, and clicks the “I’m Lost” button.
+During the few minutes surrounding when Christy clicked “I’m Lost,” thirty other students also indicated that they were lost. Because the instructor had set the cluelessness threshold at 15%, the instructor pauses the lecture to quickly catch everybody up.
+Fifteen minutes later, Jimmy realizes he is lost. He clicks “I’m Lost,” only to realize that he is one of only a few who is lost. He has two options. One: raise his hand to ask a question. Two: Write a question into the Collective Q&A. He goes with option two and five minutes later, a classmate or TA provides an answer to his question.
+Still not clear, Jimmy goes to office hours to ask Professor Smith about the question he posed in yesterday’s lecture. The professor logs into the app, drills down to Jimmy’s profile, and looks through his prior “I’m Lost” clicks as well as the questions he has asked. It is clear that Jimmy is missing one key concept that will help to answer all of his other questions.
+As a routine part of nightly study, Christy logs into the app to post questions she has as well as to provide answers to questions other students have raised. When she provides meaningful and accurate feedback to other students, she earns points, which may be used by her professor to boost her grade.
+As a routine part of his nightly study, Jimmy reviews lecture transcripts and ties questions to specific points in lecture that he does not understand.
+Before each new lecture, Professor Smith adds a collection of question topics and areas to spur discussion in the Q&A.
+After each lecture, Professor Smith is able to review where students had trouble and to review in detail where students are having trouble. He goes through student responses to indicate “instructor-approved” answers as a means of awarding bonus points. Based on who indicated they were lost and when they indicated that they were lost, he is able to improve the content of the next lecture and to improve the lecture for when he gives it again in the same course next year.
+After several semesters Professor Smith has a large collection of past student “I’m Lost” data and peer-to-peer Q&A histories that he uses to anticipate student questions, prepare Teaching Assistants, and improve lecture.
+Elements/Vision for the interface: Student views: Live lecture
+
+In this view, the instructor’s words are transcribed live and in the context of any active powerpoint slides. This part is viewable at the top of the screen.
+Below the slides and transcription at the top of the page is a democratic Q&A section where students can create and upvote questions. If a single question receives a threshold number of votes, instructor is alerted.
+Somewhere on the screen in a fixed area (perhaps ~ to the MKS alert a TA button) is a button that students can use to indicate when they are lost.
+Prior lecture
+Similar to live lecture layout, except students can access the same features and tie questions to any point in the lecture.
+General Q&A section
+General questions are asked here and can be asked or answered outside the context of specific lectures.
+Student dashboard landing page
+Student lands here upon login. List of courses they are enrolled in is displayed.
+Student chooses a class to access that course’s landing page
+Course landing page
+List of lectures
+General Q&A
+Student’s accumulated points
+Instructor views:
+
+Instructor landing page: List of courses teacher teaches
+Course landing page
+List of lectures
+Take a lecture live
+Selected lecture:
+View lecture-specific Q&A
+Course-specific student activity summary
+Student-specific activity details
+View summary of cluelessness
