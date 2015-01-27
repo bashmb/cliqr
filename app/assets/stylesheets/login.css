@@ -1,4 +1,4 @@
-#signin {
+#signin, #signup {
 
   /*body {
     padding-top: 40px;
@@ -7,7 +7,7 @@
   */}
 
   .form-signin {
-    max-width: 330px;
+    width: 530px;
     padding: 15px;
     margin: 0 auto;
   }
@@ -32,11 +32,13 @@
   }
   .form-signin input[type="email"] {
     margin-bottom: -1px;
+    width: 430px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
   .form-signin input[type="password"] {
     margin-bottom: 10px;
+    width: 430px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
