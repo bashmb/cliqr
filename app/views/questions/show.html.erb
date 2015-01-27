@@ -2,15 +2,32 @@
 
 <table class='qTable'>
 <td>
-	<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @upvotes %></b></div></button>
+	<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @questionUpvotes %></b></div></button>
 <br>
-	<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @downvotes %></b></div></button>
+	<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @questionDownvotes %></b></div></button>
 </td>
 
 <td>
-	Question Content: <%= @content %>
+	Question Content: <%= @questionContent %>
 </td>
 </table>
+<br>
+<br>
+<%= @answerContent %>
+
+<table>
+<tr>
+	<td>
+<%= form_for @answer, url: {action: 'create'} do |f| %>
+	<%= f.label :content %>
+	<%= f.text_area :content %>
+	<%= f.hidden_field :upvote, value: 1 %> 
+	<%= f.hidden_field :downvote, value: 0 %>
+	<%= f.hidden_field :question_id, value:params['id'] %>
+	<%= f.submit :value=>"Submit Answer"%>
+<% end %>
+
+</td>
 
 
 <style>

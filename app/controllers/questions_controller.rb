@@ -1,8 +1,7 @@
 class QuestionsController < ApplicationController
   def create
-    puts question_params
 	  Question.create(question_params)
-	  redirect_to root_path
+	  redirect_to "questions"
   end
 
   def destroy
@@ -20,10 +19,16 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    question = Question.find(params[:id])
-    @content = question['content']
-    @upvotes = question['upvote']
-    @downvotes = question['downvote']
+    @question = Question.find(params[:id])
+    @questionContent = @question['content']
+    @questionUpvotes = @question['upvote']
+    @questionDownvotes = @question['downvote']
+
+    
+    @answer = Answer.find_by question_id:15
+    @answerContent = @answer['content']
+    @answerUpvotes = @answer['upvote']
+    @answerDownvotes = @answer['downvote']
   end
 
   def update
