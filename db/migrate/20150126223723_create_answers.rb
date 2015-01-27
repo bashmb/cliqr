@@ -3,7 +3,7 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.references :question
       t.references :user
-      t.string :content
+      t.string :text
       t.integer :upvote
       t.integer :downvote
       t.boolean :vetted?
