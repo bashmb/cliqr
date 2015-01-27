@@ -1,0 +1,40 @@
+/home/scruffy/.rbenv/versions/2.1.3/bin/ruby extconf.rb 
+checking for main() in -lpthread... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling signature.cc
+compiling constraints.cc
+compiling v8.cc
+compiling init.cc
+compiling message.cc
+compiling object.cc
+compiling array.cc
+compiling handles.cc
+compiling locker.cc
+compiling date.cc
+compiling function.cc
+compiling exception.cc
+compiling context.cc
+compiling stack.cc
+compiling template.cc
+compiling string.cc
+compiling primitive.cc
+compiling heap.cc
+compiling backref.cc
+compiling constants.cc
+compiling script.cc
+compiling value.cc
+compiling gc.cc
+compiling external.cc
+compiling accessor.cc
+compiling invocation.cc
+compiling trycatch.cc
+compiling rr.cc
+linking shared-object v8/init.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 init.so ./.gem.20150126-5837-rp6djd/v8
+installing default init libraries
