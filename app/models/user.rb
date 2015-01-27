@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true
   validates :password, presence: true
-  validates :presenter?, presence: true
+  validates :presenter, inclusion: {in: [true, false]}
 end
