@@ -2,9 +2,9 @@
 
 <table class='qTable'>
 <td>
-	<button type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @upvotes %></b></div></button>
+	<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @upvotes %></b></div></button>
 <br>
-<button type="button" class="btn btn-danger btn-sm btn-downvote"><div style="font-size:1.5em"<b><%= @downvotes %></b></div></button>
+	<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @downvotes %></b></div></button>
 </td>
 
 <td>
@@ -20,9 +20,13 @@
 </style>
 
 <script>
-  $('.btn-downvote').click(
-  	console.log("downvote clicked")
-  	)
+  $('#upvote').click(function(){
+  	console.log("upvote clicked")
+  });
 
- </script>
+  $('#downvote').click(function(){
+  	console.log("downvote clicked")
+  });
+
+</script>
 
