@@ -1,4 +1,4 @@
-= Cliqr
+# Cliqr
 
 The purpose of this project is increase lecture interactivity and improve learning outcomes by breaking down instructor/student and student/student barriers to communication. Using this app, students can discreetly indicate to a lecture presenter when they have lost track of the lecture subject, while simultaneously having the option to ask a brief question, or make a brief note.. Lecturers, at a glance, are able to ascertain the overall level of comprehension at any given point within the lecture, and are able to take corrective action at that point to clarify a subject point, or solicit questions from the class.
 
