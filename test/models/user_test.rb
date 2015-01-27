@@ -11,4 +11,11 @@ class UserTest < ActiveSupport::TestCase
     user.email = "user@example.com"
     assert_not user.save, "Saved the user without a password"
   end
+
+  test "should not save user without presnter? being set" do
+    user = User.new
+    user.email = "user@example.com"
+    user.password = "abc"
+    assert_not user.save, "Saved the user with presnter as nil"
+  end
 end
