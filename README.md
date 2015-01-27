@@ -11,9 +11,10 @@ Post-lecture visual analysis is available to the lecturer, to determine key poin
 * **Bootstrap** - Front end HTML/CSS framework
 
 **Team members:**
-Brian Atwood
-Mike Bashour
-Glenn Meyer
-Charles Milam module, github issue management
-Nora Neyland
+* Brian Atwood
+* Mike Bashour
+* Glenn Meyer
+* Charles Milam
+* Nora Neyland
 
+For additional information, [see the wiki](https://github.com/bashmb/clicktolearn/wiki "Cliqr's Wiki")
