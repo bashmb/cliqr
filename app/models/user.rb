@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :upvotes
 
   validates :email, presence: true
+  validates :email, uniqueness: true
   validates :password, presence: true
   validates :presenter, inclusion: {in: [true, false]}
 end
