@@ -1,0 +1,16 @@
+/home/vagrant/.rbenv/versions/2.0.0-p481/bin/ruby -r ./siteconf20150127-9257-1vpywct.rb extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+
+make "DESTDIR=" install
+/usr/bin//install -c -m 0755 bcrypt_ext.so ./.gem.20150127-9257-ntfk5l
+installing default bcrypt_ext libraries
