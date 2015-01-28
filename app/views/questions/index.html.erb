@@ -21,14 +21,14 @@
 
 <table class='aTable'>
 
-<% @answers.where(question_id:question['id']).each do |answer| %>
+<% @answers.where(question_id:question['id']).order('upvote - downvote DESC').each do |answer| %>
 
 <tr>
 
 	<td>
-		<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"<b>3</b></div></button>
+		<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"<b><%= answer['upvote'] %></b></div></button>
 	<br>
-		<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.25em"<b>1</b></div></button>
+		<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.25em"<b><%= answer['downvote'] %></b></div></button>
 	</td>
 	<td>
 		<%= answer['text'] %>
