@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   def create
     question = Question.create(question_params)
-    redirect_to root_path
+    redirect_to question_path(question)
   end
 
   def destroy
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @question.update(question_params)
-    redirect_to root_path
+    redirect_to question_path(@question)
   end
 
   private
