@@ -13,4 +13,7 @@
  *= require_tree .
  *= require_self
  *= require lavish-bootstrap
+ *= require application
+ *= require layout
+ *= require login
  */
