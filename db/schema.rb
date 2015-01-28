@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127170148) do
+ActiveRecord::Schema.define(version: 20150128155125) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(version: 20150127170148) do
 
   create_table "upvotes", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "vote_id"
-    t.string   "vote_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "content_id"
+    t.string   "content_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "upvotes", ["vote_type", "vote_id"], name: "index_upvotes_on_vote_type_and_vote_id"
+  add_index "upvotes", ["content_type", "content_id"], name: "index_upvotes_on_content_type_and_content_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
