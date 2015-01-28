@@ -16,7 +16,7 @@
 
 </div> --> <!-- /container -->
 
-<div class="container" id="signin">
+<div class="container">
   <div class="form">
     <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
     <h3>Have an Account?</h3>
@@ -44,7 +44,7 @@
           <div id="legend">
             <legend class="">Sign Up</legend>
           </div>
-          <%= form_for :user, html: {class: "form-horizontal", id: "signup"} do |f| %>
+          <%= form_for :user, url: users_path, html: {class: "form-horizontal", id: "signup"} do |f| %>
             <%= f.label :femail, "Email:", class: "control-group" %>
             <%= f.text_field :email, { class: "form-control", type: "email"} %>
             <%= f.label :fpassword, "Password:", class: "control-group" %>
