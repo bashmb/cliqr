@@ -2,13 +2,13 @@
 
 <table class='qTable'>
 <td>
-	<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @questionUpvotes %></b></div></button>
+	<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @question.upvote %></b></div></button>
 <br>
-	<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @questionDownvotes %></b></div></button>
+	<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @question.downvote %></b></div></button>
 </td>
 
 <td>
-	<%= @questionContent %>
+	<%= @question.text %>
 </td>
 </table>
 <br>
@@ -40,7 +40,7 @@
 <%= form_for @answer, {url: question_answers_path(@question)} do |f| %>
 	<%= f.label :text, "Your Answer" %>
 	<%= f.text_field :text, placeholder: 'Answer' %>
-	<%= f.hidden_field :question_id, value: @questionID %>
+	<%= f.hidden_field :question_id, value: @question.id %>
 	<%= f.submit "Submit Answer" %>
 <% end %>
 

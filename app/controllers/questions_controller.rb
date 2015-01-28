@@ -24,10 +24,6 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @questionID = @question['id']
-    @questionContent = @question['text']
-    @questionUpvotes = @question['upvote']
-    @questionDownvotes = @question['downvote']
     @answers = @question.answers.order('upvote - downvote DESC')
     @answer = @question.answers.new
   end
