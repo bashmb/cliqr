@@ -1,2 +1,72 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<h3>Display an individual question</h3>
+
+<table class='qTable'>
+<td>
+	<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @question.upvote %></b></div></button>
+<br>
+	<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @question.downvote %></b></div></button>
+</td>
+
+<td>
+	<%= @question.text %>
+</td>
+</table>
+<br>
+<br>
+<table class='aTable'>
+
+
+<% @answers.as_json.each do |answer| %>
+<tr>
+
+	<td>
+		<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"<b><%= answer['upvote'] %></b></div></button>
+	<br>
+		<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.25em"<b><%= answer['downvote'] %></b></div></button>
+	</td>
+	<td>
+		<%= answer['text'] %>
+	</td>
+</tr>
+<td></td>
+<tr>
+</tr>
+	<% end %>
+<table>
+<br>
+<br>
+<tr>
+	<td>
+<%= form_for @answer, {url: question_answers_path(@question)} do |f| %>
+	<%= f.label :text, "Your Answer" %>
+	<%= f.text_field :text, placeholder: 'Answer' %>
+	<%= f.hidden_field :question_id, value: @question.id %>
+	<%= f.submit "Submit Answer" %>
+<% end %>
+
+	</td>
+
+</td>
+
+
+<style>
+	.qTable{
+	font-size:1.5em;
+	}
+	.aTable {
+	margin-left:5em;
+	font-size:1.25em;
+	}
+</style>
+
+<script>
+  $('#upvote').click(function(){
+  	console.log("upvote clicked")
+  });
+
+  $('#downvote').click(function(){
+  	console.log("downvote clicked")
+  });
+
+</script>
+
