@@ -1,4 +1,4 @@
-(function(){
+$(function(){
     'use strict';
   var $ = jQuery;
   $.fn.extend({
@@ -41,4 +41,10 @@ $(function(){
     }
   });
   $('[data-toggle="tooltip"]').tooltip();
+})
+
+$(function() {
+  $("tr[data-link]").click(function() {
+    window.location = this.dataset.link
+  });
 })
