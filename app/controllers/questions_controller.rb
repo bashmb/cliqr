@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
   def create
+    puts question_params
     question = Question.create(question_params)
-    redirect_to root_path
+    redirect_to "/questions"
   end
 
   def destroy
@@ -15,7 +16,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    puts "in index"
     @questions = Question.all
+    @answers = Answer.all
   end
 
   def new
@@ -24,6 +27,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers.order('upvote - downvote DESC')
+    @answer = @question.answers.new
   end
 
   def update
@@ -34,6 +39,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:text, :upvote, :downvote)
+    params.require(:question).permit(:text, :upvote, :downvote, :user_id)
   end
 end
