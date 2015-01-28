@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
             
   validates :password, 
             presence: true, 
-            length: { minimum: 6 }, 
             format: { with: /(?=.*[a-zA-Z])(?=.*[0-9]).{6,}/ }
      
   before_save { self.email = email.downcase }
