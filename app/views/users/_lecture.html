@@ -17,10 +17,13 @@
             <label for="newLectureName">Lecture Name</label>
             <input type="text" class="form-control" id="newLectureName" placeholder="New Lecture Name">
           </div>
-          <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile">
-            <p class="help-block">Upload any slides, notes, etc here.</p>
+          <div class="form-group" id="newFile">
+            <!-- <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile"> -->
+            <!-- <p class="help-block">Upload any slides, notes, etc here.</p> -->
+            <span class="file-input btn btn-block btn-primary btn-file">
+                Upload Files&hellip; <input type="file" multiple>
+            </span>
           </div>
         </form>
       </div>
