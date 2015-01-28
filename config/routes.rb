@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'answers/create'
 
+  get 'questions/latest' => 'questions_controller#latest'
+
   # get 'answers/destroy'
 
   # get 'answers/edit'

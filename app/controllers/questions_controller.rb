@@ -32,6 +32,11 @@ class QuestionsController < ApplicationController
     redirect_to root_path
   end
 
+  def latest
+    @latest = Question.where(timestamp: 1.second.ago).count
+    render :json => @latest
+  end
+
   private
   def question_params
     params.require(:question).permit(:text, :upvote, :downvote)
