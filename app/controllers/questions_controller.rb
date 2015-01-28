@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def create
+    puts question_params
     question = Question.create(question_params)
     redirect_to "/questions"
   end
@@ -17,7 +18,7 @@ class QuestionsController < ApplicationController
   def index
     puts "in index"
     @questions = Question.all
-    @answers = @questions.each{|question| question.answers}
+    @answers = Answer.all
   end
 
   def new
@@ -38,6 +39,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:text, :upvote, :downvote)
+    params.require(:question).permit(:text, :upvote, :downvote, :user_id)
   end
 end
