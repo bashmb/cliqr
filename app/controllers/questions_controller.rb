@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def create
+    # binding.pry
     question = Question.create(question_params)
     redirect_to question_path(question)
   end
@@ -36,6 +37,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:text, :upvote, :downvote)
+    params.require(:question).permit(:text, :upvote, :downvote, :user_id)
   end
 end

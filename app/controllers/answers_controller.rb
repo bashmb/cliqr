@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
      answer.downvote = 0
      answer.question_id = params[:answer][:question_id]
      answer.save
+
      question = Question.find(params[:question_id])
      redirect_to question_path(question)
   end
