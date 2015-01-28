@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   root "sessions#new"
 
-  get 'answers/create'
-
   resources :users do
     resources :questions, :answers
   end
 
   resources :questions do
-    resources :answers, only: :index
+    resources :answers, except: [:index]
   end
 
   resources :sessions

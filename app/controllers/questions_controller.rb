@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
     @questionUpvotes = @question['upvote']
     @questionDownvotes = @question['downvote']
     @answers = @question.answers.order('upvote - downvote DESC')
-    @newAnswer = Answer.new
+    @answer = @question.answers.new
   end
 
   def update
@@ -42,10 +42,4 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:text, :upvote, :downvote)
   end
-
-  def newAnswer_params
-    params.require(:newAnswer).permit(:text, :upvote, :downvote, :question_id)
-  end
-
-
 end

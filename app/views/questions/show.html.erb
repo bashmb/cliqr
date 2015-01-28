@@ -37,12 +37,10 @@
 <br>
 <tr>
 	<td>
-<%= form_for @newAnswer, url: {action: 'create'} do |f| %>
+<%= form_for @answer, {url: question_answers_path(@question)} do |f| %>
 	<%= f.label :text, "Your Answer" %>
-	<%= text_field_tag :text, nil, placeholder: 'Answer' %>
+	<%= f.text_field :text, placeholder: 'Answer' %>
 	<%= f.hidden_field :question_id, value: @questionID %>
-	<%= f.hidden_field :upvote, value: 1 %> 
-	<%= f.hidden_field :downvote, value: 0 %>
 	<%= f.submit "Submit Answer" %>
 <% end %>
 
