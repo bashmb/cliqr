@@ -13,7 +13,7 @@
 		<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= question['downvote'] %></b></div></button>
 	</td>
 	<td>
-		<%= question['text'] %>
+		<%= link_to question['text'], "questions/#{question['id']}" %>
 	</td>
 	</table>
 	<table class='aTable'>
@@ -37,7 +37,7 @@
 <style>
 	.qTable{
 	font-size:1.5em;
-	margin-left:1em;
+	margin-left:.5em;
 	}
 	.aTable {
 	margin-left:5em;
