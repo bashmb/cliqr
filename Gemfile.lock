@@ -55,7 +55,7 @@ GEM
     coffee-script-source (1.8.0)
     columnize (0.9.0)
     debug_inspector (0.0.2)
-<<<<<<< HEAD
+    debugger-linecache (1.2.0)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -63,9 +63,6 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-=======
-    debugger-linecache (1.2.0)
->>>>>>> discussion_module
     erubis (2.7.0)
     execjs (2.2.2)
     globalid (0.3.0)
@@ -93,9 +90,7 @@ GEM
     multi_json (1.10.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-<<<<<<< HEAD
     orm_adapter (0.5.0)
-=======
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -103,7 +98,6 @@ GEM
     pry-byebug (2.0.0)
       byebug (~> 3.4)
       pry (~> 0.10)
->>>>>>> discussion_module
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)

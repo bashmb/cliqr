@@ -15,7 +15,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    puts "in index"
     @questions = Question.all
+    @answers = @questions.each{|question| question.answers}
   end
 
   def new

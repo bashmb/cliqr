@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150128161641) do
-=======
-ActiveRecord::Schema.define(version: 20150127170148) do
->>>>>>> discussion_module
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -60,7 +56,6 @@ ActiveRecord::Schema.define(version: 20150127170148) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "password"
-<<<<<<< HEAD
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "presenter",              default: false
@@ -73,11 +68,6 @@ ActiveRecord::Schema.define(version: 20150127170148) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-=======
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "presenter",  default: false
->>>>>>> discussion_module
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
