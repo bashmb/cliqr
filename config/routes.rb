@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "sessions#new"
+  devise_for :users, :controllers => {:registrations => "users"}
+  
+  root "users#index"
 
   resources :users do
     resources :questions, :answers
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
     resources :answers, except: [:index]
   end
 
-  resources :sessions
+  # resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
