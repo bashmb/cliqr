@@ -7,4 +7,5 @@ class Question < ActiveRecord::Base
   has_many :downvotes, :through => :content
 
   validates :user_id, presence:  true
+  validates :text, presence: true
 end
