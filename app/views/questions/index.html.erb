@@ -1,6 +1,9 @@
 <h1>Questions#index</h1>
 <h3>This index page lists all questions and answers.</h3>
-<p>Find me in app/views/questions/index.html.erb</p>
+
+<h2>
+<%= link_to "Add new Question", "questions/new" %>
+</h2>
 <% @questions.as_json.each do |question| %>
 
 <table class='qTable'>

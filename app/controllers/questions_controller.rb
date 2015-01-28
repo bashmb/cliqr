@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   def create
     question = Question.create(question_params)
-    redirect_to root_path
+    redirect_to "/questions"
   end
 
   def destroy
