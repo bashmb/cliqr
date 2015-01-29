@@ -1,6 +1,16 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  # needed for devise and warden
+  include Devise::TestHelpers
+  include Warden::Test::Helpers
+  # start warden test mode
+  Warden.test_mode!
+
+  setup do
+
+  end
+
   teardown do
     # reset the Warden test mode after each test
     Warden.test_reset!
@@ -10,6 +20,7 @@ class UsersControllerTest < ActionController::TestCase
     get :new
     assert_redirected_to new_user_session_path
   end
+  
   # ******* Below tests are default, created by rails ***********
   # test "should get create" do
   #   get :create
