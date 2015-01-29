@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129011303) do
+ActiveRecord::Schema.define(version: 20150129011650) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -23,16 +23,6 @@ ActiveRecord::Schema.define(version: 20150129011303) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  create_table "downvotes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "content_id"
-    t.string   "content_type"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "downvotes", ["content_type", "content_id"], name: "index_downvotes_on_content_type_and_content_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "text"
