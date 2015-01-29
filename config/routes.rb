@@ -1,56 +1,22 @@
 Rails.application.routes.draw do
+  # post 'votes/create'
+
   devise_for :users, :controllers => {:registrations => "users"}
   
   root "users#index"
-
-  get 'answers/create'
-
-  # get 'answers/destroy'
-
-  # get 'answers/edit'
-
-  # get 'answers/index'
-
-  # get 'answers/new'
-
-  # get 'answers/show'
-
-  # get 'answers/update'
-
-  # get 'questions/create'
-
-  # get 'questions/destroy'
-
-  # get 'questions/edit'
-
-  # get 'questions/index'
-
-  # get 'questions/new'
-
-  # get 'questions/show'
-
-  # get 'questions/update'
-
-  # get 'users/create'
-
-  # get 'users/destroy'
-
-  # get 'users/edit'
-
-  # get 'users/index'
-
-  # get 'users/new'
-
-  # get 'users/show'
-
-  # get 'users/update'
 
   resources :users do
     resources :questions, :answers
   end
 
   resources :questions do
-    resources :answers, only: :index
+    resources :votes, only: [:create, :destroy]
+
+    resources :answers, except: [:index]
+  end
+
+  resources :answers do
+    resources :votes, only: [:create, :destroy]
   end
 
   # resources :sessions

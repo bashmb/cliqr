@@ -1,2 +1,10 @@
-<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
+<h3>New Question</h3>
+
+<%= form_for @question, url: {action: 'create'} do |f| %>
+	<%= f.label :text %>
+	<%= f.text_area :text %>
+	<%= f.hidden_field :upvote, value: 1 %> 
+	<%= f.hidden_field :downvote, value: 0 %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.submit %>
+<% end %>
