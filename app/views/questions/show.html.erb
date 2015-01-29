@@ -4,17 +4,19 @@
 <td>
   <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
     <%= f.hidden_field :vote_type, value: 'upvote' %> 
-	<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @question.upvote %></b></div></button>
+	<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"><b>^</b></div></button>
   <% end %>
+<br>
+	<%= @question.upvote - @question.downvote %>
 <br>
   <%= form_for @vote, {url: question_votes_path(@question)} do |f| %>
     <%= f.hidden_field :vote_type, value: 'downvote' %>
-	<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @question.downvote %></b></div></button>
+	<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.5em"><b>v</b></div></button>
   <% end %>
 </td>
 
 <td>
-	<%= @question.text %>
+	 <%= @question.text %>
 </td>
 </table>
 <br>
@@ -28,19 +30,21 @@
 	<td>
     <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
       <%= f.hidden_field :vote_type, value: 'upvote' %>
-		<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"<b><%= answer.upvote %></b></div></button>
+		<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"><b>^</div></button>
     <% end %>
+	<br>
+	<%= answer.upvote-answer.downvote %>
 	<br>
     <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
     <%= f.hidden_field :vote_type, value: 'downvote' %>
-		<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.25em"<b><%= answer.downvote %></b></div></button>
+		<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.25em"><b>v</div></button>
   <% end %>
 	</td>
 	<td>
 		<%= answer.text %>
 	</td>
 </tr>
-<td></td>
+<td><br></td>
 <tr>
 </tr>
 	<% end %>
