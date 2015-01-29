@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
     puts "in index"
     @questions = Question.all
     @answers = Answer.all
+    @vote = Vote.new
   end
 
   def new
