@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
+  # include Votable
+
+  # before_filter :load_content
+
   def create
-    # binding.pry
     question = Question.create(question_params)
     redirect_to question_path(question)
   end
@@ -27,6 +30,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers.order('upvote - downvote DESC')
     @answer = @question.answers.new
+    @vote = @question.votes.new
   end
 
   def update
