@@ -50,7 +50,6 @@ class VoteTest < ActiveSupport::TestCase
   end
 
   test "user_id should not be nil" do
-    print "user id ", @user.id
     @vote = @question.votes.new 
     @vote.content_type = "Question"
     @vote.vote_type = "upvote"
