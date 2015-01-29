@@ -1,2 +1,121 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container lectures">
+    <h1>Choose your lecture</h1><br>
+      <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Current Lectures</h3>
+              <!-- <div class="pull-right">
+                <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                  <i class="glyphicon glyphicon-filter"></i>
+                </span>
+              </div> -->
+          </div>
+          <div class="panel-body">
+            <input type="text" class="form-control" id="current-table-filter" data-action="filter" data-filters="#current-table" placeholder="Filter Current Lectures" />
+          </div>
+          <table class="table table-hover" id="current-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Lecture</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-link="<%= questions_path %>">
+                <td>1</td>
+                <td>Norm</td>
+                <td>Neyland</td>
+                <td>How to Get a Boy Name</td>
+              </tr>
+              <tr data-link="<%= questions_path %>" >
+                <td>2</td>
+                <td>Bob</td>
+                <td>Loblaw</td>
+                <td>boblahblah</td>
+              </tr>
+              <tr data-link="<%= questions_path %>" >
+                <td>3</td>
+                <td>Banana</td>
+                <td>Hammock</td>
+                <td>WHY</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">Past Lectures</h3>
+            <!-- <div class="pull-right">
+              <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                <i class="glyphicon glyphicon-filter"></i>
+              </span>
+            </div> -->
+          </div>
+          <div class="panel-body">
+            <input type="text" class="form-control" id="past-table-filter" data-action="filter" data-filters="#past-table" placeholder="Filter Past Lectures" />
+          </div>
+          <table class="table table-hover" id="past-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Lecture</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-link="<%= questions_path %>" >
+                <td>1</td>
+                <td>Glenn</td>
+                <td>Meyer</td>
+                <td>How to Beat Up Girls</td>
+              </tr>
+              <tr data-link="<%= questions_path %>" >
+                <td>2</td>
+                <td>Brian</td>
+                <td>Atwood</td>
+                <td>Bitchy Resting Face 201</td>
+              </tr>
+              <tr data-link="<%= questions_path %>" >
+                <td>3</td>
+                <td>Michael</td>
+                <td>Bashour</td>
+                <td>Nice Guys 101</td>
+              </tr>
+              <tr data-link="<%= questions_path %>" >
+                <td>4</td>
+                <td>Charles</td>
+                <td>Milam</td>
+                <td>In Charge</td>
+              </tr>
+              <tr data-link="<%= questions_path %>" >
+                <td>5</td>
+                <td>Other</td>
+                <td>Person</td>
+                <td>I am not creative</td>
+              </tr>
+              <tr data-link="<%= questions_path %>" >
+                <td>6</td>
+                <td>Sweet</td>
+                <td>Child</td>
+                <td>Of mineeeee</td>
+              </tr>
+              <tr data-link="<%= questions_path %>" >
+                <td>7</td>
+                <td>Taargus</td>
+                <td>Taargus</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
