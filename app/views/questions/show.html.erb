@@ -1,5 +1,5 @@
 <h3>Display an individual question</h3>
-
+<%= link_to "Return to all questions", "/questions" %>
 <table class='qTable'>
 <td>
   <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
