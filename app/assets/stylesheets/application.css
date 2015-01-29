@@ -16,4 +16,6 @@
  *= require application
  *= require layout
  *= require login
+ *= require jquery-ui.min
+ *= require live-audience-view
  */

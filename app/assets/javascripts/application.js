@@ -13,8 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-ui.min
 //= require bootstrap.min
-//= require_tree .
+//= require jquery-circle-progress-1.1.2/dist/circle-progress
+//= require cluelessButton
+
+
 
 
 jQuery(function($) {

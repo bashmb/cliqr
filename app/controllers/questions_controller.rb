@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+    @user = User.find(current_user.id)
   end
 
   def new

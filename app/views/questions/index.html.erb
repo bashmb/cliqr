@@ -1,2 +1,20 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+<!-- <head>
+	<link rel="stylesheet" href="/../../assets/stylesheets/jquery-ui.min.css">
+	<link rel="stylesheet" href="/../../assets/stylesheets/live-audience-view.css">
+	<script src="/../../assets/javascripts/jquery.js"></script>
+	<script src="/../../assets/javascripts/jquery-circle-progress-1.1.2/dist/circle-progress.js"></script>
+</head> -->
+<body>
+
+<% if @user.presenter.to_s == 'true' %>
+    <%= render "questions/lecture" %>
+    <% else %>
+    <%= render "questions/button" %>
+<% end %>
+<!-- 
+<script src="app/assets/javascripts/jquery-ui.min.js"></script>
+<script src="app/assets/javascripts/cluelessButton.js"></script> -->
+</body>
+</html>
