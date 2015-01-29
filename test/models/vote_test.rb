@@ -50,20 +50,19 @@ class VoteTest < ActiveSupport::TestCase
   end
 
   test "user_id should not be nil" do
+    print "user id ", @user.id
     @vote = @question.votes.new 
     @vote.content_type = "Question"
     @vote.vote_type = "upvote"
-    @vote.save
 
-    assert_not_nil @vote.user_id, "Saved with user_id nil"
+    assert_not @vote.save, "Saved with user_id nil"
   end
 
   test "content_id should not be nil" do
     @vote = @question.votes.new 
     @vote.content_type = "Question"
     @vote.vote_type = "upvote"
-    @vote.save
 
-    assert_not_nil @vote.content_id, "Saved with content_id nil"
+    assert_not @vote.save, "Saved with content_id nil"
   end
 end
