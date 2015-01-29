@@ -1,7 +1,13 @@
 class AnswersController < ApplicationController
   def create
-    answer = Answer.create(answer_params)
-    redirect_to root_path
+     # binding.pry
+     answer = Answer.new
+     answer.text = params[:answer][:text]
+     answer.upvote = 1
+     answer.downvote = 0
+     answer.question_id = params[:answer][:question_id]
+     answer.save
+     redirect_to root_path
   end
 
   def destroy
@@ -30,10 +36,5 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @answer.update(answer_params)
     redirect_to root_path
-  end
-
-  private
-  def answer_params
-    answer.require(:answer).permit(:text, :upvote, :downvote)
   end
 end

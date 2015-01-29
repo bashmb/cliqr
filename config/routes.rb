@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'answers/create'
 
+  get 'questions/latest' => 'questions_controller#latest'
+
   # get 'answers/destroy'
 
   # get 'answers/edit'
@@ -50,7 +52,7 @@ Rails.application.routes.draw do
   end
 
   resources :questions do
-    resources :answers, only: :index
+    resources :answers, except: [:index]
   end
 
   # resources :sessions
