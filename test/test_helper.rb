@@ -9,5 +9,9 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   # needed for devise
   include Devise::TestHelpers
+  include Warden::Test::Helpers
+
+  # turn on Warden test mode
+  Warden.test_mode!
 
 end
