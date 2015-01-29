@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  teardown do
+    # reset the Warden test mode after each test
+    Warden.test_reset!
+  end
+
   test "should get create" do
     get :create
     assert_response :success
