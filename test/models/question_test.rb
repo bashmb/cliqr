@@ -1,21 +1,25 @@
 require 'test_helper'
 
 class QuestionTest < ActiveSupport::TestCase
-  test "should not save question without text" do
-    question = Question.new
-    assert_not question.save, "Saved the question without text"
+
+  def setup
+    @user = User.new
+    @user.email = "testerino@test.com"
+    @user.password = "abcd1234"
+    @user.presenter = false
+    @user.save
   end
 
-  test "should not save question without a user_id" do
-    question = Question.new
-    question.text = "This is a test question"
-    assert_not question.save, "Saved the question without a user_id"
+  def teardown
+    @user = nil
+  end
+
+  test "should not save question with empty text" do
+    assert_raises(ActiveRecord::RecordInvalid, "Saved the question without text") { @user.questions.create!(text: "")}
   end
 
   test "should save a question" do
-    question = Question.new
-    question.text = "This is a test question"
-    question.user_id = 1
-    assert question.save, "Saved the question"
+    assert @user.questions.create(text: "This is a test question?"), "Saved the question"
   end
+
 end
