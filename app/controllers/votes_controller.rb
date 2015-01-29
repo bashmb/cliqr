@@ -2,15 +2,17 @@ class VotesController < ApplicationController
   before_filter :load_content
 
   def create
-    vote = @content.votes.new
-    vote.user_id = current_user.id
-    vote.vote_type = params[:vote][:vote_type] 
-    vote.save
-    
-    upvotes = @content.upvote
-    downvotes = @content.downvote
+    if current_user.id
+      vote = @content.votes.new
+      vote.user_id = current_user.id
+      vote.vote_type = params[:vote][:vote_type] 
+      vote.save
+      
+      upvotes = @content.upvote
+      downvotes = @content.downvote
 
-    params[:vote][:vote_type] == 'upvote' ? @content.update(upvote: upvotes + 1) : @content.update(downvote: downvotes + 1)
+      params[:vote][:vote_type] == 'upvote' ? @content.update(upvote: upvotes + 1) : @content.update(downvote: downvotes + 1)
+    end
     redirect_to :back 
   end
 
