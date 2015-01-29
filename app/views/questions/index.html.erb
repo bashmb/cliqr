@@ -1,4 +1,57 @@
 <h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
-<%= @questions %>
+<h3>This index page lists all questions and answers.</h3>
 
+<h2>
+<%= link_to "Add new Question", "questions/new" %>
+</h2>
+<% @questions.as_json.each do |question| %>
+
+	<table class='qTable'>
+	<td>
+		<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= question['upvote'] %></b></div></button>
+	<br>
+		<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= question['downvote'] %></b></div></button>
+	</td>
+	<td>
+		<%= link_to question['text'], "questions/#{question['id']}" %>
+	</td>
+	</table>
+	<table class='aTable'>
+	<% @answers.where(question_id:question['id']).order('upvote - downvote DESC').each do |answer| %>
+	<tr>
+		<td>
+			<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"<b><%= answer['upvote'] %></b></div></button>
+			<br>
+			<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.25em"<b><%= answer['downvote'] %></b></div></button>
+		</td>
+		<td>
+			<%= answer['text'] %>
+		</td>
+	</tr>
+		<% end %>
+<% end %>
+
+
+
+
+<style>
+	.qTable{
+	font-size:1.5em;
+	margin-left:.5em;
+	}
+	.aTable {
+	margin-left:5em;
+	font-size:1.25em;
+	}
+</style>
+
+<script>
+  $('#upvote').click(function(){
+  	console.log("upvote clicked")
+  });
+
+  $('#downvote').click(function(){
+  	console.log("downvote clicked")
+  });
+
+</script>

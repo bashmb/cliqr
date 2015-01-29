@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   # before_filter :load_content
 
   def create
+    puts question_params
     question = Question.create(question_params)
     redirect_to question_path(question)
   end
@@ -19,7 +20,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    puts "in index"
     @questions = Question.all
+    @answers = Answer.all
   end
 
   def new
@@ -37,6 +40,11 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.update(question_params)
     redirect_to question_path(@question)
+  end
+
+  def latest
+    @latest = Question.where(timestamp: 1.second.ago).count
+    render :json => @latest
   end
 
   private
