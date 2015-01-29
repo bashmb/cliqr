@@ -1,0 +1,45 @@
+  .glyphicon {
+    float: left;
+    vertical-align: middle;
+  }
+  .btn-downvote {
+    clear: left;
+  }
+  .span8 {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 900px;
+  }
+  .span6 {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 840px;
+  }
+  .span1 {
+    float: left;
+  }
+  .quest {
+    /*width: 1000px;
+    border-radius: 6px;
+    margin: 8px;*/
+    height: auto;
+    /*overflow: auto;
+    clear: both;
+    vertical-align: center;*/
+  }
+  .ans {
+    width: 950px;
+    border-radius: 6px;
+    margin: 8px;
+    height: auto;
+    overflow: auto;
+    clear: both;
+    vertical-align: center;
+    margin-left: 30px;
+  }
