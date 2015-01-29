@@ -3,16 +3,26 @@ $(document).on("click", ".clueless-button", function(e){
 
 	var refractoryTime = 10000;
 
-	// $.ajax({
- //  		type: "POST",
- //  		url: "/questions/new",
- //  		data: { product: { name: "Filip", description: "whatever" } },
- //  		success:(data) ->
- //    	alert data.id
- //    	return false
- //  		error:(data) ->
- //    	return false
-	// });
+	$.ajax({
+  		type: "POST",
+  		url: "/questions",
+  		data: { 
+  			utf8: "\u2713",
+			authenticity_token: $('input[name=authenticity_token]').val(),
+			question: {
+				text: $('.clueless-input').val(),
+				user_id: $('.user-id-input').val(),
+				upvote: 1,
+				downvote: 0
+			},
+			commit: "Create Question"
+  		}
+  		// success:(data) ->
+    // 	alert data.id
+    // 	return false
+  		// error:(data) ->
+    	// return false
+	});
 
 	$(".clueless-form").addClass("hidden-button");
 	$('#circle').removeClass('hidden-button');
