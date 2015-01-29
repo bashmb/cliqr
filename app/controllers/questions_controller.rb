@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
 
   def index
     puts "in index"
-    @questions = Question.all
+    @questions = Question.all.order('upvote - downvote DESC')
 
     @user = User.find(current_user.id)
 
