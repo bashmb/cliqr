@@ -1,6 +1,6 @@
-$(document).on("click", ".clueless-button", function(e){
+$(".clueless-button").on("click", function(e){
 	e.preventDefault();
-
+	console.log("click")
 	var refractoryTime = 10000;
 
 	$.ajax({
