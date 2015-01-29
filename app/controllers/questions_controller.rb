@@ -1,8 +1,12 @@
 class QuestionsController < ApplicationController
+  # include Votable
+
+  # before_filter :load_content
+
   def create
     puts question_params
     question = Question.create(question_params)
-    redirect_to "/questions"
+    redirect_to question_path(question)
   end
 
   def destroy
@@ -18,11 +22,13 @@ class QuestionsController < ApplicationController
   def index
     puts "in index"
     @questions = Question.all
-<<<<<<< HEAD
+
     @user = User.find(current_user.id)
-=======
+
     @answers = Answer.all
->>>>>>> master
+
+    @vote = Vote.new
+
   end
 
   def new
@@ -32,13 +38,15 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers.order('upvote - downvote DESC')
+    @answerCurrentScore = @question.answers[0].upvote if @question.answers.length > 0
     @answer = @question.answers.new
+    @vote = @question.votes.new
   end
 
   def update
     @question = Question.find(params[:id])
     @question.update(question_params)
-    redirect_to root_path
+    redirect_to question_path(@question)
   end
 
   def latest

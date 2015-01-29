@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # post 'votes/create'
+
   devise_for :users, :controllers => {:registrations => "users"}
   
   root "users#index"
@@ -52,7 +54,13 @@ Rails.application.routes.draw do
   end
 
   resources :questions do
+    resources :votes, only: [:create, :destroy]
+
     resources :answers, except: [:index]
+  end
+
+  resources :answers do
+    resources :votes, only: [:create, :destroy]
   end
 
   # resources :sessions
