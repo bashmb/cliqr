@@ -2,9 +2,15 @@
 
 <table class='qTable'>
 <td>
-	<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @question.upvote %></b></div></button>
+  <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
+    <%= f.hidden_field :vote_type, value: 'upvote' %> 
+	<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b><%= @question.upvote %></b></div></button>
+  <% end %>
 <br>
-	<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @question.downvote %></b></div></button>
+  <%= form_for @vote, {url: question_votes_path(@question)} do |f| %>
+    <%= f.hidden_field :vote_type, value: 'downvote' %>
+	<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b><%= @question.downvote %></b></div></button>
+  <% end %>
 </td>
 
 <td>
@@ -16,16 +22,22 @@
 <table class='aTable'>
 
 
-<% @answers.as_json.each do |answer| %>
+<% @answers.each do |answer| %>
 <tr>
 
 	<td>
-		<button id="upvote" type="button" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"<b><%= answer['upvote'] %></b></div></button>
+    <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
+      <%= f.hidden_field :vote_type, value: 'upvote' %>
+		<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"<b><%= answer.upvote %></b></div></button>
+    <% end %>
 	<br>
-		<button id="downvote" type="button" class="btn btn-danger btn-sm"><div style="font-size:1.25em"<b><%= answer['downvote'] %></b></div></button>
+    <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
+    <%= f.hidden_field :vote_type, value: 'downvote' %>
+		<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.25em"<b><%= answer.downvote %></b></div></button>
+  <% end %>
 	</td>
 	<td>
-		<%= answer['text'] %>
+		<%= answer.text %>
 	</td>
 </tr>
 <td></td>
