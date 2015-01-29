@@ -17,3 +17,6 @@ ngrok
 /.bundle
 # Ignore all logfiles and tempfiles.
 !/log/.keep
+*.swo
+*.swp
+*.orig
