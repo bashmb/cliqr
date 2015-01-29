@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  test "should get new with new user" do
+  teardown do
+    # reset the Warden test mode after each test
+    Warden.test_reset!
+  end
+
+  test "should get new" do
     get :new
     assert_redirected_to new_user_session_path
   end
