@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers.order('upvote - downvote DESC')
-    @answerCurrentScore = @question.answers[0].upvote
+    @answerCurrentScore = @question.answers[0].upvote if @question.answers.length > 0
     @answer = @question.answers.new
     @vote = @question.votes.new
   end
