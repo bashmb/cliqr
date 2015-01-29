@@ -3,7 +3,7 @@
 	height: 400px;
 }
 
-.clueless-form {
+form.clueless-form {
 	/*border-style: solid;*/
 
 	z-index: 2;
@@ -40,7 +40,7 @@
 	width: 80%;
 }
 
-.hidden {
+.hidden-button {
 	-moz-opacity: 0;
 	z-index: 0;
     opacity: 0;

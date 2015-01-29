@@ -1,0 +1,41 @@
+$(document).on("click", ".clueless-button", function(e){
+	e.preventDefault();
+
+	var refractoryTime = 10000;
+
+	// $.ajax({
+ //  		type: "POST",
+ //  		url: "/questions/new",
+ //  		data: { product: { name: "Filip", description: "whatever" } },
+ //  		success:(data) ->
+ //    	alert data.id
+ //    	return false
+ //  		error:(data) ->
+ //    	return false
+	// });
+
+	$(".clueless-form").addClass("hidden-button");
+	$('#circle').removeClass('hidden-button');
+	$('#circle').circleProgress({
+		thickness: 10,
+		animationStartValue: 1,
+		reverse: true,
+        value: 0,
+        size: 200,
+        fill: {
+            image: "<%= asset_path('progressbar.png') %>"
+        },
+        animation: {duration: refractoryTime, easing: "linear"}
+    })
+    
+    setTimeout(function(){
+    	$(".clueless-form").removeClass("hidden-button");
+    	$("#circle").addClass("hidden-button");
+    }, refractoryTime)
+
+}); // .success(function(data))...  data will include refractory length
+
+	$('#circle').circleProgress({
+        value: 1,
+        size: 200,
+    });

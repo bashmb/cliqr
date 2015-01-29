@@ -16,7 +16,7 @@
 //= require jquery-ui.min
 //= require bootstrap.min
 //= require jquery-circle-progress-1.1.2/dist/circle-progress
-//= require cluelessButton
+
 
 
 
