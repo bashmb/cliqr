@@ -18,7 +18,11 @@ class QuestionsController < ApplicationController
   def index
     puts "in index"
     @questions = Question.all
+<<<<<<< HEAD
+    @user = User.find(current_user.id)
+=======
     @answers = Answer.all
+>>>>>>> master
   end
 
   def new

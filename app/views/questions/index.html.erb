@@ -1,3 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<% if @user.presenter.to_s == 'true' %>
+    <%= render "questions/lecture" %>
+    <% else %>
+    <%= render "questions/button" %>
+<% end %>
+
+
+
+
+
 <h1>Questions#index</h1>
 <h3>This index page lists all questions and answers.</h3>
 
@@ -54,3 +70,5 @@
   });
 
 </script>
+</body>
+</html>
