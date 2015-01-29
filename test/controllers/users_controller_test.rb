@@ -8,7 +8,7 @@ class UsersControllerTest < ActionController::TestCase
   Warden.test_mode!
 
   setup do
-
+    # needed setup code before each test would go here
   end
 
   teardown do
@@ -18,7 +18,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should get new" do
     get :new
-    assert_redirected_to new_user_session_path
+    assert_redirected_to new_user_session_path, "Did not redirect to new user session"
   end
   
   # ******* Below tests are default, created by rails ***********
