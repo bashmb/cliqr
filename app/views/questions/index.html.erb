@@ -32,7 +32,7 @@
 	</td>
 	</table>
 	<table class='aTable'>
-	<% @answers.where(question_id:question.id).order('upvote - downvote DESC').each do |answer| %>
+	<% question.answers.order('upvote - downvote DESC').each do |answer| %>
 	<tr>
 		<td>
       <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
