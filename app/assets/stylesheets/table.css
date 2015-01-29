@@ -1,6 +1,6 @@
 .lectures {
   .row{
-      margin-top:40px;
+      margin-top: 40px;
       padding: 0 10px;
   }
   .clickable{
@@ -16,4 +16,8 @@
   .panel-body{
     display: none;
   }
+}
+
+tr[data-link="/questions"] {
+  cursor: pointer;
 }
