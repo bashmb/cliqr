@@ -1,72 +1,46 @@
+<<<<<<< HEAD
+<h1 id="title">Lecture Questions</h1>
+<h2 id="newQlink">
+	<%= link_to "Add new Question", "questions/new" %>
+</h2><br>
+<% @questions.as_json.each do |question| %>
+	
+	<div class="quest">
+	  <div class="span1">
+	    <button type="button" id="upvote" class="btn btn-sm btn-success btn-upvote">
+	      <span class="glyphicon glyphicon-arrow-up"></span>&nbsp;
+	    </button><br>
+	    <span class="count">count</span><br>
+	    <button type="button" id="downvote" class="btn btn-sm btn-danger btn-downvote">
+	      <span class="glyphicon glyphicon-arrow-down"></span>&nbsp;
+	    </button>
+	  </div>
+	  <div class="span8 question">
+	    <pre><%= link_to question['text'], "questions/#{question['id']}" %></pre>
+	  </div>
+	</div>
 
+	<% @answers.where(question_id:question['id']).order('upvote - downvote DESC').each do |answer| %>
 
-<!DOCTYPE html>
-<html>
+		<div class="ans">
+		  <div class="span1">
+		    <button type="button" id="upvote" class="btn btn-sm btn-success btn-upvote">
+		      <span class="glyphicon glyphicon-arrow-up"></span>&nbsp;
+		    </button><br>
+		    <span class="count">count</span><br>
+		    <button type="button" id="downvote" class="btn btn-sm btn-danger btn-downvote">
+		      <span class="glyphicon glyphicon-arrow-down"></span>&nbsp;
+		    </button>
+		  </div>
+		  <div class="span6 answer">
+		    <pre><%= answer['text'] %></pre>
+		  </div>
+		</div>
 
-<body>
+	<% end %>
+	
 
-
-
-<h2>
-<%= link_to "Add new Question", "questions/new" %>
-</h2>
-<% @questions.each do |question| %>
-
-	<table class='qTable'>
-	<td>
-    <%= form_for @vote, {url: question_votes_path(question) } do |f| %>
-      <%= f.hidden_field :vote_type, value: 'upvote' %>
-		<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"<b>^</b></div></button>
-  <% end %>
-	<br>
-		<%= question.upvote - question.downvote %>
-	<br>
-
-  <%= form_for @vote, {url: question_votes_path(question) } do |f| %>
-    <%= f.hidden_field :vote_type, value: 'downvote' %>
-		<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.5em"<b>v</b></div></button>
-  <% end %>
-	</td>
-	<td>
-		<%= link_to question.text, "/questions/#{question.id}" %>
-	</td>
-	</table>
-	<table class='aTable'>
-	<% question.answers.order('upvote - downvote DESC').each do |answer| %>
-	<tr>
-		<td>
-      <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
-        <%= f.hidden_field :vote_type, value: 'upvote' %>
-			<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"<b>^</b></div></button>
-    <% end %>
-			<br>
-			<%= answer.upvote - answer.downvote %>
-			<br>
-      <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
-        <%= f.hidden_field :vote_type, value: 'downvote' %>
-			<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.25em"<b>v</b></div></button>
-    <% end %>
-		</td>
-		<td>
-			<%= answer.text %>
-		</td>
-	</tr>
-		<% end %>
 <% end %>
-
-
-
-
-<style>
-	.qTable{
-	font-size:1.5em;
-	margin-left:.5em;
-	}
-	.aTable {
-	margin-left:5em;
-	font-size:1.25em;
-	}
-</style>
 
 <script>
   $('#upvote').click(function(){
@@ -78,5 +52,5 @@
   });
 
 </script>
-</body>
-</html>
+<!-- </body>
+</html> -->
