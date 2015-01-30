@@ -1,11 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+# ************ Votes Table Schema **************
+# t.integer  "user_id"
+# t.integer  "content_id"
+# t.string   "content_type"
+# t.datetime "created_at",   null: false
+# t.datetime "updated_at",   null: false
+# t.string   "vote_type"
+
+votes1:
+  id: 999
+  created_at: "2015-1-1"
+  updated_at: "2015-1-1"
+
+votes2:
+  id: 888
+  created_at: "2015-1-1"
+  updated_at: "2015-1-1"
+
+votes3:
+  id: 77
+  created_at: "2015-1-1"
+  updated_at: "2015-1-1"
