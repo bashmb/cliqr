@@ -7,6 +7,15 @@ class UsersControllerTest < ActionController::TestCase
   # start warden test mode
   Warden.test_mode!
 
+  # *********** Stuff available after a valid request ************
+  # puts "assigns", assigns
+  # puts "cookies", cookies
+  # puts "flash", flash
+  # puts "session", session
+  # puts "controller", @controller
+  # puts "request", @request
+  # puts "response", @response.@status
+
   setup do
     # needed setup code before each test would go here
   end
@@ -16,26 +25,27 @@ class UsersControllerTest < ActionController::TestCase
     Warden.test_reset!
   end
 
-  test "should get new and redirect to session sign-in" do
+  test "anon user should get new and redirect to session sign-in" do
     get :new
+    assert :success
     assert_redirected_to new_user_session_path, "Did not redirect to new user session sign-in"
   end
   
-  # ******* Below tests are default, created by rails ***********
   # test "should get create" do
   #   get :create
   #   assert_response :success
   # end
 
   test "should get destroy and redirect to " do
-    get :destroy
-    # puts "assigns", assigns
-    # puts "cookies", cookies
-    # puts "flash", flash
-    # puts "session", session
-    # puts "controller", @controller
-    # puts "request", @request
-    # puts "response", @response.@status
+    user1 = users(:user1)
+
+    @user = user1
+
+    sign_in @user
+
+    get :destroy, {id: 339}, {user_id: @user.id}
+    # puts "assigns", assigns.inspect
+
     assert_response :redirect, "Did not succeed"
     assert_redirected_to root_path, "Did not redirect to the root path"
   end
@@ -45,10 +55,16 @@ class UsersControllerTest < ActionController::TestCase
   #   assert_response :success
   # end
 
-  # test "should get index" do
-  #   get :index
-  #   assert_response :success
-  # end
+  test "Authenicated user should get index" do
+    user1 = users :user1
+    @user = user1
+
+    sign_in @user
+
+    get :index
+
+    assert_response :success, "Authenticated user did not get index"
+  end
 
   # test "should get new" do
   #   get :new
