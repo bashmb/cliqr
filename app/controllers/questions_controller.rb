@@ -48,8 +48,9 @@ class QuestionsController < ApplicationController
     redirect_to question_path(@question)
   end
 
+
   def latest
-    @latest = Question.where(timestamp: 1.second.ago).count
+    @latest = Question.find_by_sql("select * from questions where datetime('now', '-5 seconds') < created_at;").count
     render :json => @latest
   end
 

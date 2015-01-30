@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'answers/create'
 
-  # get 'questions/latest' => 'questions#latest'
+  get 'questions/latest' => 'questions#latest'
 
   # post 'questions/create' => 'questions#create'
 
