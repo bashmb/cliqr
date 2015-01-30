@@ -1,6 +1,7 @@
 .clueless-div {
 	width: 400px;
 	height: 400px;
+  margin: 0 auto;
 }
 
 form.clueless-form {
@@ -17,6 +18,11 @@ form.clueless-form {
     -ms-transition: all 200ms linear;
     -o-transition: all 200ms linear;
     transition: all 200ms linear;
+}
+
+textarea#styled{
+  margin: 0 auto;
+  height: 75px;
 }
 
 .clueless-div {
