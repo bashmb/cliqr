@@ -24,8 +24,8 @@
   <div class="modal-body">
     <div class="form-signin well">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
-        <li><a href="#create" data-toggle="tab">Create Account</a></li>
+        <li class="active" id='login-tab'><a href="#login" data-toggle="tab">Login</a></li>
+        <li id='create-account-tab'><a href="#create" data-toggle="tab">Create Account</a></li>
       </ul>
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane active in" id="login">
@@ -55,3 +55,11 @@
       </div>
     </div>
   </div>
+  <% if alert && alert.present? %>
+    <script>
+      $('#login').removeClass('active').removeClass('in').addClass('fade')
+      $('#create').removeClass('fade').addClass('active').addClass('in')
+      $('#login-tab').removeClass('active')
+      $('#create-account-tab').addClass('active')
+    </script>
+  <%end%>
