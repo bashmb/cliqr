@@ -23,6 +23,13 @@ form.clueless-form {
 	position: relative;
 }
 
+button#clueless {
+  width: 85%;
+  height: 50%;
+  background-image: url("/assets/toad-0823a9d23de79fe860f6dda800a82af9.jpg");
+  background-repeat: no-repeat;
+}
+
 .clueless-input {
 	width: 80%;
 	display: block;

@@ -1,11 +1,35 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+# ************* Answers Table Schema ****************
+# t.integer  "question_id"
+# t.integer  "user_id"
+# t.string   "text"
+# t.integer  "upvote"
+# t.integer  "downvote"
+# t.boolean  "vetted"
+# t.datetime "created_at",  null: false
+# t.datetime "updated_at",  null: false
+
+answer1: 
+  id: 987
+  text: "This is one answer."
+  upvote: 1
+  downvote: 0
+  created_at: "2015-1-1"
+  updated_at: "2015-1-1"
+
+answer2: 
+  id: 654
+  text: "This is two answer."
+  upvote: 1
+  downvote: 0
+  created_at: "2015-1-1"
+  updated_at: "2015-1-1"
+
+answer3: 
+  id: 321
+  text: "This is three answer."
+  upvote: 1
+  downvote: 0
+  created_at: "2015-1-1"
+  updated_at: "2015-1-1"
