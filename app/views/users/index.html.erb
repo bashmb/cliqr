@@ -1,14 +1,16 @@
 <div class="container lectures">
     <h1>Choose your lecture</h1><br>
+    <% if @user.presenter.to_s == 'true' %>
+      <%= render "users/lecture" %>
+    <% end %>
+    <br><br>
       <div class="row">
       <div class="col-md-6">
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">Current Lectures</h3>
               <!-- <div class="pull-right">
-                <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-                  <i class="glyphicon glyphicon-filter"></i>
-                </span>
+                
               </div> -->
           </div>
           <div class="panel-body">
@@ -24,19 +26,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr data-link="<%= questions_path %>">
+              <tr data-link="<%= new_question_path %>">
                 <td>1</td>
                 <td>Norm</td>
                 <td>Neyland</td>
                 <td>How to Get a Boy Name</td>
               </tr>
-              <tr data-link="<%= questions_path %>" >
+              <tr data-link="<%= new_question_path %>" >
                 <td>2</td>
                 <td>Bob</td>
                 <td>Loblaw</td>
                 <td>boblahblah</td>
               </tr>
-              <tr data-link="<%= questions_path %>" >
+              <tr data-link="<%= new_question_path %>" >
                 <td>3</td>
                 <td>Banana</td>
                 <td>Hammock</td>

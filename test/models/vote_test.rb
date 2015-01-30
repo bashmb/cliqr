@@ -49,21 +49,49 @@ class VoteTest < ActiveSupport::TestCase
     assert_equal "downvote", vtype, "Vote type is not 'downvote'"
   end
 
+  test "should create an answer" do
+    @vote = @question.votes.new 
+    @vote.content_type = "Answer"
+    @vote.vote_type = "upvote"
+    @vote.save
+    ctype = @vote.content_type
+
+    assert_equal "Answer", ctype, "Content type is not 'Answer'"
+  end
+
+  test "should create an answer upvote" do
+    @vote = @question.votes.new 
+    @vote.content_type = "Answer"
+    @vote.vote_type = "upvote"
+    @vote.save
+    vtype = @vote.vote_type
+
+    assert_equal "upvote", vtype, "Vote type is not 'upvote'"
+  end
+
+  test "should create an answer downvote" do
+    @vote = @question.votes.new 
+    @vote.content_type = "Answer"
+    @vote.vote_type = "downvote"
+    @vote.save
+    vtype = @vote.vote_type
+
+    assert_equal "downvote", vtype, "Vote type is not 'downvote'"
+  end
+
   test "user_id should not be nil" do
     @vote = @question.votes.new 
     @vote.content_type = "Question"
     @vote.vote_type = "upvote"
-    @vote.save
 
-    assert_not_nil @vote.user_id, "Saved with user_id nil"
+    assert_not @vote.save, "Saved with user_id nil"
   end
 
   test "content_id should not be nil" do
     @vote = @question.votes.new 
     @vote.content_type = "Question"
     @vote.vote_type = "upvote"
-    @vote.save
 
-    assert_not_nil @vote.content_id, "Saved with content_id nil"
+    assert_not @vote.save, "Saved with content_id nil"
   end
 end

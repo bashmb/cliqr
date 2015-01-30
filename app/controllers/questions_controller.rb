@@ -4,9 +4,7 @@ class QuestionsController < ApplicationController
   # before_filter :load_content
 
   def create
-    puts question_params
-    question = Question.create(question_params)
-    redirect_to question_path(question)
+    Question.create(question_params)
   end
 
   def destroy
@@ -21,17 +19,25 @@ class QuestionsController < ApplicationController
 
   def index
     puts "in index"
-    @questions = Question.all
-    @answers = Answer.all
+    @questions = Question.all.order('upvote - downvote DESC')
+
+    @user = User.find(current_user.id)
+
+    @answers = Answer.all.order('upvote - downvote DESC')
+
+    @vote = Vote.new
+
   end
 
   def new
     @question = Question.new
+    @user = User.find(current_user.id)
   end
 
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers.order('upvote - downvote DESC')
+    @answerCurrentScore = @question.answers[0].upvote if @question.answers.length > 0
     @answer = @question.answers.new
     @vote = @question.votes.new
   end

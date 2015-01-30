@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Clique</title>
+  <title>Cliqr</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,9 +10,6 @@
 
 <%= render "layouts/header" %>
 
-<% if notice && notice.present? %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
 <% if alert && alert.present? %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>

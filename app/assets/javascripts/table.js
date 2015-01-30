@@ -1,4 +1,4 @@
-$(function(){
+$(function($){
     'use strict';
   var $ = jQuery;
   $.fn.extend({
@@ -25,7 +25,7 @@ $(function(){
     }
   });
   $('[data-action="filter"]').filterTable();
-})(jQuery);
+}(jQuery));
 
 $(function(){
     // attach table filter plugin to inputs

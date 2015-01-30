@@ -13,8 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-ui.min
 //= require bootstrap.min
+//= require jquery-circle-progress-1.1.2/dist/circle-progress
+//= require upload
 //= require_tree .
+
+
+
 
 
 jQuery(function($) {
@@ -22,3 +28,5 @@ $("tr[data-link]").click(function() {
 window.location = this.dataset.link
 });
 })
+
+

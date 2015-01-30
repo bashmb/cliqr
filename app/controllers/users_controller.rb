@@ -23,11 +23,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @user = User.find(current_user.id)
   end
 
   def new
-    @user = User.new
+    # default new form is not used, this redirects to the
+    # corrrect sign-in form
+    redirect_to new_user_session_path
   end
 
   def show
