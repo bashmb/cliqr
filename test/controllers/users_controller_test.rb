@@ -31,9 +31,18 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path, "Did not redirect to new user session sign-in"
   end
   
+  # WIP: difficulty getting this test to work with devise
   # test "should get create" do
-  #   get :create
-  #   assert_response :success
+  #   params = {
+  #     user: {
+  #       email: "test@test.com",
+  #       password: "abcd1234",
+  #       presenter: false
+  #     }
+  #   }
+  #   post :create
+  #   assert :success
+  #   #assert_response :success, "Did not succeed in getting create"
   # end
 
   test "should get destroy and redirect to " do
@@ -44,7 +53,6 @@ class UsersControllerTest < ActionController::TestCase
     sign_in @user
 
     get :destroy, {id: 339}, {user_id: @user.id}
-    # puts "assigns", assigns.inspect
 
     assert_response :redirect, "Did not succeed"
     assert_redirected_to root_path, "Did not redirect to the root path"
