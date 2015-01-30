@@ -1,4 +1,3 @@
-/vendor
 /log/*
 # Ignore DS store
 # Ignore bundler config.
