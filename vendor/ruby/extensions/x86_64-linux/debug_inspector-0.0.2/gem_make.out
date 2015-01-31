@@ -1,0 +1,16 @@
+/usr/bin/ruby extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+rm -f 
+rm -f debug_inspector.so  *.o  *.bak mkmf.log .*.time
+
+make "DESTDIR="
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.   -fPIC -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -mtune=generic -fPIC -m64 -o debug_inspector.o -c debug_inspector.c
+rm -f debug_inspector.so
+gcc -shared -o debug_inspector.so debug_inspector.o -L. -L/usr/lib64 -L. -Wl,-z,relro -fstack-protector -rdynamic -Wl,-export-dynamic  -m64  -lruby  -lpthread -ldl -lcrypt -lm   -lc
+
+make "DESTDIR=" install
+/usr/bin/mkdir -p . ./.gem.20150130-19305-w9bluu
+exit > .RUBYARCHDIR.time
+/usr/bin/install -c -m 0755 debug_inspector.so ./.gem.20150130-19305-w9bluu
