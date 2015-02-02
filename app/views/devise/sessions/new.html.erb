@@ -56,7 +56,6 @@
     </div>
   </div>
   <% if alert.present? %>
-    <% binding.pry %>
        <% if alert.include?("Email") || alert.include?("Password") %>
     <script>
       $('#login').removeClass('active').removeClass('in').addClass('fade')
