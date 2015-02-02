@@ -1,4 +1,67 @@
+<script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
+<script>
+  $('#upvote').click(function(){
+  	console.log("upvote clicked")
+  });
+
+  $('#downvote').click(function(){
+  	console.log("downvote clicked")
+  });
+
+  $(function () {
+    $('#container-x').highcharts({
+        chart: {
+            type: "spline"
+        },
+        plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }    
+            }
+        },
+        title: {
+            text: 'Monthly Average Temperature',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: WorldClimate.com',
+            x: -20
+        },
+        xAxis: {
+            categories: <%= @categories %>
+        },
+        yAxis: {
+            title: {
+                text: 'Temperature (°C)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Tokyo',
+            data: <%= @data %>
+        }]
+    });
+});
+
+</script>
 <h1 id="title">Lecture Questions</h1>
+
+<div id="container-x" style="min-width: 310px; height: 400px; margin: 0 auto"> <%= @data %></div>
+
 <h2 id="newQlink">
 	<%= link_to "Add new Question", "questions/new" %>
 </h2><br>
@@ -52,16 +115,5 @@
 	
 
 <% end %>
-
-<script>
-  $('#upvote').click(function(){
-  	console.log("upvote clicked")
-  });
-
-  $('#downvote').click(function(){
-  	console.log("downvote clicked")
-  });
-
-</script>
 <!-- </body>
 </html> -->

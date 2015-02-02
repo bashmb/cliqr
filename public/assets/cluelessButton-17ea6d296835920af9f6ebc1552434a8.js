@@ -28,7 +28,7 @@ $(".clueless-button").click(function(e){
         value: 0,
         size: 200,
         fill: {
-            image: "<%= asset_path('progressbar.png') %>"
+            image: "/assets/progressbar-d11907eddf4fea6f39c62e38be16ceeb.png"
         },
         animation: {duration: refractoryTime, easing: "linear"}
     })
