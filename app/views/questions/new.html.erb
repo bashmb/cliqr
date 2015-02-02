@@ -1,4 +1,4 @@
-<% if @user.presenter.to_s == 'true' %>
+<% if current_user.presenter == true %>
     <%= render "questions/lecture" %>
     <% else %>
     <%= render "questions/button" %>
