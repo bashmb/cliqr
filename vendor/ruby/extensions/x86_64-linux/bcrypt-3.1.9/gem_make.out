@@ -1,0 +1,20 @@
+/usr/bin/ruby extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+rm -f 
+rm -f bcrypt_ext.so  *.o  *.bak mkmf.log .*.time
+
+make "DESTDIR="
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.   -fPIC -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -mtune=generic -fPIC -m64 -o wrapper.o -c wrapper.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.   -fPIC -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -mtune=generic -fPIC -m64 -o crypt_gensalt.o -c crypt_gensalt.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.   -fPIC -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -mtune=generic -fPIC -m64 -o crypt.o -c crypt.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.   -fPIC -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -mtune=generic -fPIC -m64 -o crypt_blowfish.o -c crypt_blowfish.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.   -fPIC -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -mtune=generic -fPIC -m64 -o bcrypt_ext.o -c bcrypt_ext.c
+rm -f bcrypt_ext.so
+gcc -shared -o bcrypt_ext.so wrapper.o crypt_gensalt.o crypt.o crypt_blowfish.o bcrypt_ext.o -L. -L/usr/lib64 -L. -Wl,-z,relro -fstack-protector -rdynamic -Wl,-export-dynamic  -m64  -lruby  -lpthread -ldl -lcrypt -lm   -lc
+
+make "DESTDIR=" install
+/usr/bin/mkdir -p . ./.gem.20150202-3512-1lkrxg2
+exit > .RUBYARCHDIR.time
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20150202-3512-1lkrxg2
