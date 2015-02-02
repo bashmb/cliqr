@@ -1,6 +1,6 @@
 <div class="container lectures">
     <h1>Choose your lecture</h1><br>
-    <% if @user.presenter.to_s == 'true' %>
+    <% if current_user.presenter == true %>
       <%= render "users/lecture" %>
     <% end %>
     <br><br>
