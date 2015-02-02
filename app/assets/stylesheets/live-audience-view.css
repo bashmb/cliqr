@@ -20,6 +20,11 @@ form.clueless-form {
     transition: all 200ms linear;
 }
 
+textarea#styled{
+  margin: 0 auto;
+  height: 75px;
+}
+
 .clueless-div {
 	position: relative;
 }

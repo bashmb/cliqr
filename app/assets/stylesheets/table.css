@@ -21,3 +21,7 @@
 tr[data-link="/questions"] {
   cursor: pointer;
 }
+
+tr[data-link="/questions/new"] {
+  cursor: pointer;
+}

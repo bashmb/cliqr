@@ -31,7 +31,6 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    @user = User.find(current_user.id)
   end
 
   def show
