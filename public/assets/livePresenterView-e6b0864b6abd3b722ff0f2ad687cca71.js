@@ -1,0 +1,28 @@
+var gradient = ["#00FA00", "#19FA00", "#33FB00", "#4CFB00", "#66FC00", "#7FFC00", "#99FD00", "#B2FD00", "#CCFE00", "#E5FE00", "#FFFF00", "#FDE304", "#FCC708", "#FBAB0D", "#FA8F11", "#F97315", "#F8571A", "#F73B1E", "#F61F22", "#F50327"]
+
+
+var classSize = 20;
+
+$(".start-lecture-button").click(function(){
+	setInterval(function(){
+		$.get( "../questions/latest", function( data ) {
+			var cluelessLevel = Math.floor((data / classSize) * 20)
+			console.log("level (/20):", cluelessLevel)
+  			$(".live-presenter-container").css({
+  				'background-color': gradient[cluelessLevel],
+  				'-webkit-transition': 'background-color 1s'
+  			})
+		});
+	}, 1000)
+})
+
+// weoifjweofj
+// weoifjweofj
+// weoifjweofj
+// weoifjweofj
+// weoifjweofj
+// weoifjweofj
+// weoifjweofj
+// weoifjweofj
+// weoifjweofj
+;
