@@ -55,12 +55,13 @@
       </div>
     </div>
   </div>
-  <% if alert && alert.present? %>
-  <!-- <% binding.pry %> -->
+  <% if alert.present? %>
+       <% if alert.include? "Email" || alert.include? "Password" %>
     <script>
       $('#login').removeClass('active').removeClass('in').addClass('fade')
       $('#create').removeClass('fade').addClass('active').addClass('in')
       $('#login-tab').removeClass('active')
       $('#create-account-tab').addClass('active')
     </script>
+    <%end%>
   <%end%>
