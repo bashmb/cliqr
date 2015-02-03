@@ -9,11 +9,13 @@
   });
 
   var categories = <%= @categories %>;
+  var data = <%= @data %>;
 
   $(function () {
     $('#container-x').highcharts({
         chart: {
             type: "spline",
+            backgroundColor: "#dde1dc"
         },
         credits: {
         	enabled: false
@@ -25,19 +27,22 @@
             series: {
                 marker: {
                     enabled: false
-                }    
-            }
+                },    
+            	color: '#23454b'
+            },
         },
         title: {
-            text: 'Cluelesses',
+            text: null,
             x: -20 //center
         },
         xAxis: {
             categories: categories.map(function(x) {return x + ":00"}),
             lineWidth: 0,
-            tickLength: 0
+            tickLength: 0,
+            tickInterval: 5
         },
         yAxis: {
+        	floor: 0,
             plotLines: [{
                 value: 0,
                 width: 0,
@@ -46,7 +51,8 @@
             gridLineWidth: 0,
             title: {
             	text: null
-            }
+            },
+            // minPadding: null
         },
         // legend: {
         //     layout: 'vertical',
@@ -55,15 +61,15 @@
         //     borderWidth: 0
         // },
         series: [{
-            // name: 'Tokyo',
-            data: <%= @data %>,
+            // A little hack to make the line look nicer when y == 0
+            data: data,//.map(function(x) {if (x == 0) { return x + .2} else { return x } }),
             name: "Cluelesses"
         }]
     });
 });
 
 </script>
-<h1 id="title">Lecture Questions</h1>
+<h1 id="title">Cluelesses</h1>
 
 <div id="container-x" style="min-width: 310px; height: 500px; margin: 0 5%"> <%= @data %></div>
 
