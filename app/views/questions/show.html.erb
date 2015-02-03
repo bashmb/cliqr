@@ -1,5 +1,6 @@
-<h3>Display an individual question</h3>
-<%= link_to "Return to all questions", questions_path %>
+<h2 id="title"><a id="colorz" href="https://www.youtube.com/watch?v=ruwWPj3OdA4">A Wild Question Appears</a></h2>&nbsp;
+<h4 id="newQlink"><%= link_to "Return to all questions", "/questions" %></h4>&nbsp;
+
 <div class="quest">
   <div class="span1">
     <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
