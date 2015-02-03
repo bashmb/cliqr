@@ -1,4 +1,72 @@
+<script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
+<script>
+  $('#upvote').click(function(){
+  	console.log("upvote clicked")
+  });
+
+  $('#downvote').click(function(){
+  	console.log("downvote clicked")
+  });
+
+  var categories = <%= @categories %>;
+
+  $(function () {
+    $('#container-x').highcharts({
+        chart: {
+            type: "spline",
+        },
+        credits: {
+        	enabled: false
+        },
+        legend: {
+        	enabled: false
+        },
+        plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }    
+            }
+        },
+        title: {
+            text: 'Cluelesses',
+            x: -20 //center
+        },
+        xAxis: {
+            categories: categories.map(function(x) {return x + ":00"}),
+            lineWidth: 0,
+            tickLength: 0
+        },
+        yAxis: {
+            plotLines: [{
+                value: 0,
+                width: 0,
+                color: '#808080'
+            }],
+            gridLineWidth: 0,
+            title: {
+            	text: null
+            }
+        },
+        // legend: {
+        //     layout: 'vertical',
+        //     align: 'right',
+        //     verticalAlign: 'middle',
+        //     borderWidth: 0
+        // },
+        series: [{
+            // name: 'Tokyo',
+            data: <%= @data %>,
+            name: "Cluelesses"
+        }]
+    });
+});
+
+</script>
 <h1 id="title">Lecture Questions</h1>
+
+<div id="container-x" style="min-width: 310px; height: 500px; margin: 0 5%"> <%= @data %></div>
+
 <h2 id="newQlink">
 	<%= link_to "Add new Question", new_question_path %>
 </h2><br>
@@ -73,5 +141,3 @@
   });
 
 </script>
-<!-- </body>
-</html> -->
