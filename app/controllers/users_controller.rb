@@ -13,13 +13,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to root_path
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user
   end
 
   def index
@@ -33,11 +32,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user
     @user.update(user_params)
     redirect_to root_path
   end
@@ -45,5 +44,17 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def set_user
+    @user = User.find(current_user.id)
+    puts "********************************************************************************"
+    puts "set user", @user.id
+  end
+
+  def set_users
+    @users = User.find(current_user.id)
+    puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    puts "set users", @users.id
   end
 end

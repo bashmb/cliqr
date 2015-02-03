@@ -37,10 +37,11 @@ class UsersControllerTest < ActionController::TestCase
   # end
 
   test "should get destroy and redirect to " do
-    user1 = users(:user1)
+    @user = users(:user1)
+    puts "in destroy test", @user.id, @user.presenter
+    #@user = user1
 
-    @user = user1
-
+    puts "destroy > user signed in", sign_in(@user)
     sign_in @user
 
     get :destroy, {id: 339}, {user_id: @user.id}
@@ -56,11 +57,11 @@ class UsersControllerTest < ActionController::TestCase
   # end
 
   test "Authenicated user should get index" do
-    user1 = users :user1
-    @user = user1
-
-    sign_in @user
-
+    sign_in users(:user1)
+    # puts "in auth index test", @user.id, @user.presenter
+    # puts "auth user index signed in", sign_in(@user)
+    # sign_in :user, @user
+    # puts "in auth index test", @user.id, @user.presenter
     get :index
 
     assert_response :success, "Authenticated user did not get index"
