@@ -17,7 +17,7 @@ class UsersControllerTest < ActionController::TestCase
   # puts "response", @response.@status
 
   setup do
-    # needed setup code before each test would go here
+    @user = users(:user1)
   end
 
   teardown do
@@ -37,19 +37,11 @@ class UsersControllerTest < ActionController::TestCase
   # end
 
   test "should get destroy and redirect to " do
-    # @user = users(:user1)
-    # puts "in destroy test", @user.id, @user.presenter
-    # #@user = user1
+    sign_in @user
 
-    # puts "destroy > user signed in", sign_in(@user)
-    # sign_in @user
-    user = users(:user1)
-    sign_in user
+    delete :destroy, id: @user.id
 
-    get(:destroy, {"id" => user.id}, {"user_id" => user.id})
-    # puts "assigns", assigns.inspect
-
-    assert_response :redirect, "Did not succeed"
+    #assert_response :redirect, "Did not succeed"
     assert_redirected_to root_path, "Did not redirect to the root path"
   end
 
