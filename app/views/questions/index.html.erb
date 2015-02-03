@@ -74,7 +74,7 @@
 <div id="container-x" style="min-width: 310px; height: 500px; margin: 0 5%"> <%= @data %></div>
 
 <h2 id="newQlink">
-	<%= link_to "Add new Question", "questions/new" %>
+	<%= link_to "Add new Question", new_question_path %>
 </h2><br>
 <% @questions.each do |question| %>
 	
@@ -95,7 +95,9 @@
     	<% end %>
 	  </div>
 	  <div class="span8 question">
-	    <pre><%= link_to question.text, "questions/#{question.id}" %></pre>
+	  	<b><%= "Teacher Vetted:" if question.vetted == true %></b>
+	    <pre><%= link_to question.text, question_path(question) %></pre>
+	    <%= form_for question, {url: question_vet_path(question)} {|f| f.submit 'Vet Question', class: "vet-button" } if current_user.presenter == true %>
 	  </div>
 	</div>
 
@@ -118,7 +120,9 @@
 		    <% end %>
 		  </div>
 		  <div class="span6 answer">
+		  	<b><%= "Teacher Vetted:" if answer.vetted == true %></b>
 		    <pre><%= answer.text %></pre>
+		    <%= form_for answer, {url: answer_vet_path(answer)} {|f| f.submit 'Vet Answer', class: "vet-button"  } if current_user.presenter == true %>
 		  </div>
 		</div>
 
@@ -126,5 +130,20 @@
 	
 
 <% end %>
-<!-- </body>
-</html> -->
+
+<style>
+.vet-button {
+	float: right;
+}
+</style>
+
+<script>
+  $('#upvote').click(function(){
+  	console.log("upvote clicked")
+  });
+
+  $('#downvote').click(function(){
+  	console.log("downvote clicked")
+  });
+
+</script>
