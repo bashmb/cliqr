@@ -27,20 +27,23 @@ class QuestionsController < ApplicationController
 
     @vote = Vote.new
 
-    categories = []
-    data = []
-    start_time = Question.first.created_at 
-    end_time = Question.last.created_at 
-    num_minute_intervals = ((end_time - start_time) / 60).to_i
+    if Question.first
+      categories = []
+      data = []
+      num_minute_intervals = ((end_time - start_time) / 60).to_i
+      
+      start_time = Question.first.created_at
+      # end_time = Question.last.created_at
 
-    num_minute_intervals.times do |minute|
-      categories.push(minute)
-      data.push(Question.where(:created_at => start_time + minute*60.seconds..start_time + minute*60.seconds + 3.minutes).count) 
+      num_minute_intervals.times do |minute|
+        categories.push(minute)
+        data.push(Question.where(:created_at => start_time + minute*60.seconds..start_time + minute*60.seconds + 3.minutes).count) 
+      end
+
+      @categories = categories
+      @data = data
+      {:categoies => categories, :data => data}.as_json
     end
-
-    @categories = categories
-    @data = data
-    {:categoies => categories, :data => data}.as_json
 
   end
 
