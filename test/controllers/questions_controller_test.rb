@@ -27,38 +27,37 @@ class QuestionsControllerTest < ActionController::TestCase
 
   test "should get create" do
     get :create
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
   test "should get destroy" do
     get :destroy, id: @q.id
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
   test "should get edit" do
     get :edit, id: @q.id
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
   test "should get index" do
     get :index
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
   test "should get new" do
     get :new
-
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
   test "should get show" do
     get :show, id: @q.id
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
-  # test "should get update" do
-  #   get :update
-  #   assert_response :success
-  # end
+  test "should get update" do
+    put :update, id: @q.id
+    assert_redirected_to user_session_path
+  end
 
 end

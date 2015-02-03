@@ -16,13 +16,12 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
     redirect_to root_path
   end
 
   def edit
-    #@question = Question.find(params[:id])
+    
   end
 
   def index
@@ -57,7 +56,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    #@question = Question.find(params[:id])
     @answers = @question.answers.order('upvote - downvote DESC')
     @answerCurrentScore = @question.answers[0].upvote if @question.answers.length > 0
     @answer = @question.answers.new
@@ -65,7 +63,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
     @question.update(question_params)
     redirect_to question_path(@question)
   end
