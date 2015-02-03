@@ -37,14 +37,16 @@ class UsersControllerTest < ActionController::TestCase
   # end
 
   test "should get destroy and redirect to " do
-    @user = users(:user1)
-    puts "in destroy test", @user.id, @user.presenter
-    #@user = user1
+    # @user = users(:user1)
+    # puts "in destroy test", @user.id, @user.presenter
+    # #@user = user1
 
-    puts "destroy > user signed in", sign_in(@user)
-    sign_in @user
+    # puts "destroy > user signed in", sign_in(@user)
+    # sign_in @user
+    user = users(:user1)
+    sign_in user
 
-    get :destroy, {id: 339}, {user_id: @user.id}
+    get(:destroy, {"id" => user.id}, {"user_id" => user.id})
     # puts "assigns", assigns.inspect
 
     assert_response :redirect, "Did not succeed"
