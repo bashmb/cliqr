@@ -19,11 +19,11 @@ class QuestionsController < ApplicationController
 
   def index
     puts "in index"
-    @questions = Question.all.order('upvote - downvote DESC')
+    @questions = Question.all.order('vetted DESC, upvote - downvote DESC')
 
     @user = User.find(current_user.id)
 
-    @answers = Answer.all.order('upvote - downvote DESC')
+    @answers = Answer.all.order('vetted DESC, upvote - downvote DESC')
 
     @vote = Vote.new
 
@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @answers = @question.answers.order('upvote - downvote DESC')
+    @answers = @question.answers.order('vetted DESC, upvote - downvote DESC')
     @answerCurrentScore = @question.answers[0].upvote if @question.answers.length > 0
     @answer = @question.answers.new
     @vote = @question.votes.new
@@ -51,6 +51,12 @@ class QuestionsController < ApplicationController
   def latest
     @latest = Question.find_by_sql("select * from questions where datetime('now', '-15 seconds') < created_at;").count
     render :json => @latest
+  end
+  
+  def vet
+    question = Question.find(params[:id])
+    question.update(vetted: true)
+    redirect_to question_path(question)
   end
 
   private

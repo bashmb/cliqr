@@ -8,6 +8,14 @@ Rails.application.routes.draw do
 
   get 'questions/latest' => 'questions#latest'
 
+  patch 'answers/:id/vet' => 'answers#vet', as: 'answer_vet'
+  
+  put 'answers/:id/vet' => 'answers#vet'
+
+  patch 'questions/:id/vet' => 'questions#vet', as: 'question_vet'
+
+  put 'questions/:id/vet' => 'questions#vet'
+
   resources :users do
     resources :questions, :answers
   end

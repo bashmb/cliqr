@@ -1,5 +1,5 @@
 <h3>Display an individual question</h3>
-<%= link_to "Return to all questions", question_path %>
+<%= link_to "Return to all questions", questions_path %>
 <table class='qTable'>
 <td>
   <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
@@ -16,7 +16,9 @@
 </td>
 
 <td>
-	 <%= @question.text %>
+	<b><%= "Teacher Vetted:" if @question.vetted == true %></b>
+	<%= @question.text %>
+	<%= form_for @question, {url: question_vet_path(@question)} {|f| f.submit 'Vet Question'} if current_user.presenter == true %>
 </td>
 </table>
 <br>
@@ -26,7 +28,6 @@
 
 <% @answers.each do |answer| %>
 <tr>
-
 	<td>
     <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
       <%= f.hidden_field :vote_type, value: 'upvote' %>
@@ -41,7 +42,9 @@
   <% end %>
 	</td>
 	<td>
+    <b><%= "Teacher Vetted:" if answer.vetted == true %></b>
 		<%= answer.text %>
+    <%= form_for answer, {url: answer_vet_path(answer)} {|f| f.submit 'Vet Answer' } if current_user.presenter == true %>
 	</td>
 </tr>
 <td><br></td>
