@@ -60,19 +60,25 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success, "Authenticated user did not get index"
   end
 
-  # test "should get new" do
-  #   get :new
-  #   assert_response :success
-  # end
+  test "auth user should get redirected" do
+    get :new
+    assert_redirected_to new_user_session_path
+  end
 
-  # test "should get show" do
-  #   get :show
-  #   assert_response :success
-  # end
+  test "should get show" do
+    sign_in @user
 
-  # test "should get update" do
-  #   get :update
-  #   assert_response :success
-  # end
+    get :show, id: @user.id
+
+    assert_response :success
+  end
+
+  test "should post update" do
+    sign_in @user
+
+    post :update, id: @user.id, user: {email: "newemail@test.com"}
+
+    assert_redirected_to root_path
+  end
 
 end

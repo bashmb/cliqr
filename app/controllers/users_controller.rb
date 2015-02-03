@@ -40,11 +40,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user
+
   end
 
   def update
-    @user
     @user.update(user_params)
     redirect_to root_path
   end
