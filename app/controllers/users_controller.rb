@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:create]
+
+  before_action :set_user,
+                only: [
+                  :show,
+                  :edit,
+                  :update,
+                  :destroy
+                ]
   def create
     @user = User.new(user_params)
     if @user.save
@@ -13,17 +21,16 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(current_user.id)
     @user.destroy
     redirect_to root_path
   end
 
   def edit
-    @user
+
   end
 
   def index
-    @user = User.find(current_user.id)
+
   end
 
   def new
@@ -33,11 +40,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user
+
   end
 
   def update
-    @user
     @user.update(user_params)
     redirect_to root_path
   end

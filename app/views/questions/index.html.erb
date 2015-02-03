@@ -76,6 +76,7 @@
 <h2 id="newQlink">
 	<%= link_to "Add new Question", new_question_path %>
 </h2><br>
+<h5 id="explain">Teacher Vetted Questions And Answers Will Be Highlighted In Green</h5>&nbsp;
 <% @questions.each do |question| %>
 	
 	<div class="quest">
@@ -95,9 +96,8 @@
     	<% end %>
 	  </div>
 	  <div class="span8 question">
-	  	<b><%= "Teacher Vetted:" if question.vetted == true %></b>
-	    <pre><%= link_to question.text, question_path(question) %></pre>
-	    <%= form_for question, {url: question_vet_path(question)} {|f| f.submit 'Vet Question', class: "vet-button" } if current_user.presenter == true %>
+	    <pre style='<%= question.vetted ? "background-color:#bfd9ba;" : "background-color:#F0F0F0" %>' ><%= link_to question.text, question_path(question) %></pre>
+	    <%= form_for question, {url: question_vet_path(question)} {|f| f.submit 'Vet Question', class: "btn btn-success btn-xs vet-button" } if current_user.presenter == true %>
 	  </div>
 	</div>
 
@@ -119,10 +119,9 @@
 		    </button>
 		    <% end %>
 		  </div>
-		  <div class="span6 answer">
-		  	<b><%= "Teacher Vetted:" if answer.vetted == true %></b>
-		    <pre><%= answer.text %></pre>
-		    <%= form_for answer, {url: answer_vet_path(answer)} {|f| f.submit 'Vet Answer', class: "vet-button"  } if current_user.presenter == true %>
+		  <div class="span6 answer">        
+		    <pre style='<%= answer.vetted ? "background-color:#bfd9ba;" : "background-color:#F0F0F0;" %>' ><%= answer.text %></pre>
+		    <%= form_for answer, {url: answer_vet_path(answer)} {|f| f.submit 'Vet Answer', class: "btn btn-success btn-xs vet-button"  } if current_user.presenter == true %>
 		  </div>
 		</div>
 
@@ -135,6 +134,7 @@
 .vet-button {
 	float: right;
 }
+
 </style>
 
 <script>
