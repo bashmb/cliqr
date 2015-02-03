@@ -15,14 +15,4 @@ $(".start-lecture-button").click(function(){
 		});
 	}, 1000)
 })
-
-// weoifjweofj
-// weoifjweofj
-// weoifjweofj
-// weoifjweofj
-// weoifjweofj
-// weoifjweofj
-// weoifjweofj
-// weoifjweofj
-// weoifjweofj
 ;
