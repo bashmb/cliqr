@@ -1,0 +1,21 @@
+.live-presenter-container {
+  width: 1000px;
+  float: right;
+  /*width: 1000px;*/
+  /*margin-left: auto;
+  margin-right: auto;*/
+  padding-top: 50px;
+}
+
+#pointer {
+  height: 550px;
+  width: 800px;
+  margin-left: 100px;
+}
+
+.start-lecture-button {
+  height: 80px;
+  width: 150px;
+  margin-top: 15px;
+  margin-right: 20px;
+}
