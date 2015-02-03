@@ -12,9 +12,12 @@
 <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <!-- <li class="active"> -->
-        <li><a href="/">Home</a></li>  
-        <li><a href="/">Lectures</a></li>
-        <li><a href="/questions/new">Ask a Question</a></li>
+        <li><%= link_to 'Home', root_path,
+  "data-no-turbolink" => true %></li>  
+        <li><%= link_to 'Lectures', root_path,
+  "data-no-turbolink" => true %></li>
+        <li><%= link_to 'Ask a Question', new_question_path,
+  "data-no-turbolink" => true %></li>
         
       </ul>
 <ul class="nav navbar-nav navbar-right">
