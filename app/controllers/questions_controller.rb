@@ -3,6 +3,14 @@ class QuestionsController < ApplicationController
 
   # before_filter :load_content
 
+  before_action :set_user,
+                only: [
+                  :show,
+                  :edit,
+                  :update,
+                  :destroy
+                ]
+
   def create
     Question.create(question_params)
   end
@@ -14,7 +22,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
+    #@question = Question.find(params[:id])
   end
 
   def index
@@ -34,7 +42,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    #@question = Question.find(params[:id])
     @answers = @question.answers.order('upvote - downvote DESC')
     @answerCurrentScore = @question.answers[0].upvote if @question.answers.length > 0
     @answer = @question.answers.new
@@ -56,5 +64,9 @@ class QuestionsController < ApplicationController
   private
   def question_params
     params.require(:question).permit(:text, :upvote, :downvote, :user_id)
+  end
+
+  def set_user
+    @question = Question.find(params[:id])
   end
 end
