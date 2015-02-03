@@ -1,5 +1,6 @@
 **/.DS_Store
 /vendor
+/public/assets
 # Ignore the default SQLite database.
 ngrok
 # or operating system, you probably want to add a global ignore instead:
