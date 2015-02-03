@@ -6,9 +6,10 @@
     clear: left;
   }
   .newQ {
-    width: 100%;
+    width: 1000px;
   }
-  .newQ input[type=text] {
+  .newA {
+    resize: none;
     width: 600px;
   }
   .span8 {
