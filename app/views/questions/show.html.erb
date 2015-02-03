@@ -1,68 +1,64 @@
-<h3>Display an individual question</h3>
-<%= link_to "Return to all questions", "/questions" %>
-<table class='qTable'>
-<td>
-  <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
-    <%= f.hidden_field :vote_type, value: 'upvote' %> 
-	<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.5em"><b>^</b></div></button>
-  <% end %>
-<br>
-	<%= @question.upvote - @question.downvote %>
-<br>
-  <%= form_for @vote, {url: question_votes_path(@question)} do |f| %>
-    <%= f.hidden_field :vote_type, value: 'downvote' %>
-	<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.5em"><b>v</b></div></button>
-  <% end %>
-</td>
+<h2 id="title"><a id="colorz" href="https://www.youtube.com/watch?v=ruwWPj3OdA4">A Wild Question Appears</a></h2>&nbsp;
+<h4 id="newQlink"><%= link_to "Return to all questions", "/questions" %></h4>&nbsp;
 
-<td>
-	 <%= @question.text %>
-</td>
-</table>
-<br>
-<br>
-<table class='aTable'>
-
+<div class="quest">
+  <div class="span1">
+    <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
+      <%= f.hidden_field :vote_type, value: 'upvote' %>
+    <button type="submit" id="upvote" class="btn btn-sm btn-success btn-upvote">
+      <span class="glyphicon glyphicon-arrow-up"></span>&nbsp;
+    </button><br>
+    <% end %>
+    <span class="count"><%= @question.upvote - @question.downvote %></span><br>
+    <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
+      <%= f.hidden_field :vote_type, value: 'downvote' %>
+    <button type="submit" id="downvote" class="btn btn-sm btn-danger btn-downvote">
+      <span class="glyphicon glyphicon-arrow-down"></span>&nbsp;
+    </button>
+    <% end %>
+  </div>
+  <div class="span8 question">
+    <pre><%= @question.text %></pre>
+  </div>
+</div>
 
 <% @answers.each do |answer| %>
-<tr>
 
-	<td>
-    <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
-      <%= f.hidden_field :vote_type, value: 'upvote' %>
-		<button id="upvote" type="submit" class="btn btn-success btn-sm btn-upvote"><div style="font-size:1.25em"><b>^</div></button>
-    <% end %>
-	<br>
-	<%= answer.upvote-answer.downvote %>
-	<br>
-    <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
-    <%= f.hidden_field :vote_type, value: 'downvote' %>
-		<button id="downvote" type="submit" class="btn btn-danger btn-sm"><div style="font-size:1.25em"><b>v</div></button>
-  <% end %>
-	</td>
-	<td>
-		<%= answer.text %>
-	</td>
-</tr>
-<td><br></td>
-<tr>
-</tr>
-	<% end %>
-<table>
-<br>
-<br>
-<tr>
-	<td>
-<%= form_for @answer, {url: question_answers_path(@question)} do |f| %>
-	<%= f.label :text, "Your Answer" %>
-	<%= f.text_field :text, placeholder: 'Answer' %>
-	<%= f.hidden_field :question_id, value: @question.id %>
-	<%= f.submit "Submit Answer" %>
+  <div class="ans">
+    <div class="span1">
+      <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
+          <%= f.hidden_field :vote_type, value: 'upvote' %>
+      <button type="submit" id="upvote" class="btn btn-sm btn-success btn-upvote">
+        <span class="glyphicon glyphicon-arrow-up"></span>&nbsp;
+      </button><br>
+      <% end %>
+      <span class="count"><%= answer.upvote - answer.downvote %></span><br>
+      <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
+          <%= f.hidden_field :vote_type, value: 'downvote' %>
+      <button type="submit" id="downvote" class="btn btn-sm btn-danger btn-downvote">
+        <span class="glyphicon glyphicon-arrow-down"></span>&nbsp;
+      </button>
+      <% end %>
+    </div>
+    <div class="span6 answer">
+      <pre><%= answer.text %></pre>
+    </div>
+  </div>
+
 <% end %>
 
-	</td>
 
-</td>
+<br>
+<br>
+<div class="newQ">
+  <%= form_for @answer, {url: question_answers_path(@question)} do |f| %>
+  	<%= f.label :text, "Your Answer" %>
+    <%= f.text_area :text, placeholder: 'Answer' %>&nbsp;
+  	<%= f.hidden_field :question_id, value: @question.id %>
+  	<%= f.submit "Submit Answer", class: "btn btn-success" %>
+  <% end %>
+</div>
+
 
 
 <style>
