@@ -7,8 +7,17 @@ class QuestionsControllerTest < ActionController::TestCase
   # start warden test mode
   Warden.test_mode!
 
+  # *********** Stuff available after a valid request ************
+  # puts "assigns", assigns
+  # puts "cookies", cookies
+  # puts "flash", flash
+  # puts "session", session
+  # puts "controller", @controller
+  # puts "request", @request
+  # puts "response", @response.@status
+
   setup do
-    # needed setup code before each test would go here
+    @q = questions(:question1)
   end
 
   teardown do
@@ -18,37 +27,37 @@ class QuestionsControllerTest < ActionController::TestCase
 
   test "should get create" do
     get :create
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
   test "should get destroy" do
-    get :destroy
-    assert_response :success
+    get :destroy, id: @q.id
+    assert_redirected_to user_session_path
   end
 
   test "should get edit" do
-    get :edit
-    assert_response :success
+    get :edit, id: @q.id
+    assert_redirected_to user_session_path
   end
 
   test "should get index" do
     get :index
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
   test "should get new" do
     get :new
-    assert_response :success
+    assert_redirected_to user_session_path
   end
 
   test "should get show" do
-    get :show
-    assert_response :success
+    get :show, id: @q.id
+    assert_redirected_to user_session_path
   end
 
   test "should get update" do
-    get :update
-    assert_response :success
+    put :update, id: @q.id
+    assert_redirected_to user_session_path
   end
 
 end

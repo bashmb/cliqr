@@ -3,18 +3,25 @@ class QuestionsController < ApplicationController
 
   # before_filter :load_content
 
+  before_action :set_user,
+                only: [
+                  :show,
+                  :edit,
+                  :update,
+                  :destroy
+                ]
+
   def create
     Question.create(question_params)
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
     redirect_to root_path
   end
 
   def edit
-    @question = Question.find(params[:id])
+    
   end
 
   def index
@@ -27,20 +34,23 @@ class QuestionsController < ApplicationController
 
     @vote = Vote.new
 
-    categories = []
-    data = []
-    start_time = Question.first.created_at 
-    end_time = Question.last.created_at 
-    num_minute_intervals = ((end_time - start_time) / 60).to_i
+    if Question.first
+      categories = []
+      data = []
+      num_minute_intervals = ((end_time - start_time) / 60).to_i
+      
+      start_time = Question.first.created_at
+      # end_time = Question.last.created_at
 
-    num_minute_intervals.times do |minute|
-      categories.push(minute)
-      data.push(Question.where(:created_at => start_time + minute*60.seconds..start_time + minute*60.seconds + 3.minutes).count) 
+      num_minute_intervals.times do |minute|
+        categories.push(minute)
+        data.push(Question.where(:created_at => start_time + minute*60.seconds..start_time + minute*60.seconds + 3.minutes).count) 
+      end
+
+      @categories = categories
+      @data = data
+      {:categoies => categories, :data => data}.as_json
     end
-
-    @categories = categories
-    @data = data
-    {:categoies => categories, :data => data}.as_json
 
   end
 
@@ -49,15 +59,13 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
-    @answers = @question.answers.order('vetted DESC, upvote - downvote DESC')
+    @answers = @question.answers.order('upvote - downvote DESC')
     @answerCurrentScore = @question.answers[0].upvote if @question.answers.length > 0
     @answer = @question.answers.new
     @vote = @question.votes.new
   end
 
   def update
-    @question = Question.find(params[:id])
     @question.update(question_params)
     redirect_to question_path(@question)
   end
@@ -92,6 +100,10 @@ class QuestionsController < ApplicationController
   private
   def question_params
     params.require(:question).permit(:text, :upvote, :downvote, :user_id)
+  end
+
+  def set_user
+    @question = Question.find(params[:id])
   end
 end
 
