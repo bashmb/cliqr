@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(current_user.id)
     @user.destroy
     redirect_to root_path
   end
@@ -48,13 +49,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(current_user.id)
-    puts "********************************************************************************"
-    puts "set user", @user.id
   end
 
   def set_users
     @users = User.find(current_user.id)
-    puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    puts "set users", @users.id
   end
 end
