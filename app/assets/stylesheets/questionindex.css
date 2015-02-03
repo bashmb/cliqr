@@ -30,6 +30,7 @@
   }
   .span1 {
     float: left;
+    padding-top: 5px;
   }
   .quest {
     width: 1250px;
@@ -57,6 +58,10 @@
   }
   #colorz {
     color: #2f575d;
+  }
+
+  #explain {
+    text-align: center;
   }
 
   pre {

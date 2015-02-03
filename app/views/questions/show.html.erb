@@ -18,11 +18,10 @@
     <% end %>
   </div>
   <div class="span8 question">
-    <pre>
-    	<b><%= "Teacher Vetted:" if @question.vetted == true %></b>
-		<%= @question.text %>
-		<%= form_for @question, {url: question_vet_path(@question)} {|f| f.submit 'Vet Question'} if current_user.presenter == true %>
-	</pre>
+    <pre style='<%= @question.vetted ? "background-color:#bfd9ba;" : "background-color:#F0F0F0" %>' >
+		<%= @question.text %></pre>
+		<%= form_for @question, {url: question_vet_path(@question)} {|f| f.submit 'Vet Question', class: "btn btn-success btn-xs vet-button"} if current_user.presenter == true %>
+	<!-- </pre> -->
   </div>
 </div>
 
@@ -45,11 +44,9 @@
       <% end %>
     </div>
     <div class="span6 answer">
-      <pre>
-      	<b><%= "Teacher Vetted:" if answer.vetted == true %></b>
-		<%= answer.text %>
-    	<%= form_for answer, {url: answer_vet_path(answer)} {|f| f.submit 'Vet Answer' } if current_user.presenter == true %>
-      </pre>
+      <pre style='<%= answer.vetted ? "background-color:#bfd9ba;" : "background-color:#F0F0F0;" %>' >
+		  <%= answer.text %></pre>
+    	<%= form_for answer, {url: answer_vet_path(answer)} {|f| f.submit 'Vet Answer', class: "btn btn-success btn-xs vet-button" } if current_user.presenter == true %>
     </div>
   </div>
 <% end %>
@@ -77,6 +74,11 @@
 		margin-left:5em;
 		font-size:1.25em;
 	}
+
+  .vet-button {
+    float: right;
+  }
+
 </style>
 
 <script>
