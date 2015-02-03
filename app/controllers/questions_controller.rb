@@ -34,7 +34,8 @@ class QuestionsController < ApplicationController
 
     @vote = Vote.new
 
-    binding.pry
+    # commenting out, in case it is needed at a later time
+    # binding.pry
 
     if Question.first
       categories = []
