@@ -5,6 +5,13 @@
   .btn-downvote {
     clear: left;
   }
+  .newQ {
+    width: 1000px;
+  }
+  .newA {
+    resize: none;
+    width: 600px;
+  }
   .span8 {
     display: inline-block;
     vertical-align: middle;
@@ -47,6 +54,9 @@
   }
   #title, #newQlink {
     text-align: center;
+  }
+  #colorz {
+    color: #2f575d;
   }
 
   pre {

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # post 'votes/create'
 
   devise_for :users, :controllers => {:registrations => "users"}
   
@@ -9,47 +8,13 @@ Rails.application.routes.draw do
 
   get 'questions/latest' => 'questions#latest'
 
-  # post 'questions/create' => 'questions#create'
+  patch 'answers/:id/vet' => 'answers#vet', as: 'answer_vet'
+  
+  put 'answers/:id/vet' => 'answers#vet'
 
-  # get 'answers/destroy'
+  patch 'questions/:id/vet' => 'questions#vet', as: 'question_vet'
 
-  # get 'answers/edit'
-
-  # get 'answers/index'
-
-  # get 'answers/new'
-
-  # get 'answers/show'
-
-  # get 'answers/update'
-
-  # get 'questions/create'
-
-  # get 'questions/destroy'
-
-  # get 'questions/edit'
-
-  # get 'questions/index'
-
-  # get 'questions/new'
-
-  # get 'questions/show'
-
-  # get 'questions/update'
-
-  # get 'users/create'
-
-  # get 'users/destroy'
-
-  # get 'users/edit'
-
-  # get 'users/index'
-
-  # get 'users/new'
-
-  # get 'users/show'
-
-  # get 'users/update'
+  put 'questions/:id/vet' => 'questions#vet'
 
   resources :users do
     resources :questions, :answers

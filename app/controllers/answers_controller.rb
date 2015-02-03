@@ -38,4 +38,10 @@ class AnswersController < ApplicationController
     @answer.update(answer_params)
     redirect_to root_path
   end
+  
+  def vet
+    answer = Answer.find(params[:id])
+    answer.update(vetted: true)
+    redirect_to question_path(answer.question)
+  end
 end
