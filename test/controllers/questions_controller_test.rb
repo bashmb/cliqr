@@ -25,13 +25,13 @@ class QuestionsControllerTest < ActionController::TestCase
     Warden.test_reset!
   end
 
-  test "should get create" do
-    get :create
+  test "should post create" do
+    post :create
     assert_redirected_to user_session_path
   end
 
-  test "should get destroy" do
-    get :destroy, id: @q.id
+  test "should destroy" do
+    delete :destroy, id: @q.id
     assert_redirected_to user_session_path
   end
 

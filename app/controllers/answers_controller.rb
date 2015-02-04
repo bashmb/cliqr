@@ -1,13 +1,13 @@
 class AnswersController < ApplicationController
   def create
      answer = Answer.new
-     answer.text = params[:answer][:text]
+     answer.text = answer_params[:text]
      answer.upvote = 1
      answer.downvote = 0
-     answer.question_id = params[:answer][:question_id]
+     answer.question_id = answer_params[:question_id]
      answer.save
 
-     question = Question.find(params[:question_id])
+     question = Question.find(answer_params[:question_id])
      redirect_to question_path(question)
   end
 
