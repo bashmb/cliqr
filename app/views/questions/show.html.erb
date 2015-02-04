@@ -5,13 +5,17 @@
   <div class="span1">
     <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
       <%= f.hidden_field :vote_type, value: 'upvote' %>
+      <%= f.hidden_field :content_id, value: @question.id %>
+      <%= f.hidden_field :content_type, value: 'question' %>
     <button type="submit" id="upvote" class="btn btn-sm btn-success btn-upvote">
       <span class="glyphicon glyphicon-arrow-up"></span>&nbsp;
     </button><br>
     <% end %>
-    <span class="count"><%= @question.upvote - @question.downvote %></span><br>
+    <span class="count question-<%= @question.id%>-score"><%= @question.upvote - @question.downvote %></span><br>
     <%= form_for @vote, {url: question_votes_path(@question) } do |f| %>
       <%= f.hidden_field :vote_type, value: 'downvote' %>
+      <%= f.hidden_field :content_id, value: @question.id %>
+      <%= f.hidden_field :content_type, value: 'question' %>
     <button type="submit" id="downvote" class="btn btn-sm btn-danger btn-downvote">
       <span class="glyphicon glyphicon-arrow-down"></span>&nbsp;
     </button>
@@ -30,14 +34,18 @@
   <div class="ans">
     <div class="span1">
       <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
-          <%= f.hidden_field :vote_type, value: 'upvote' %>
+        	<%= f.hidden_field :vote_type, value: 'upvote' %>
+        	<%= f.hidden_field :content_id, value: answer.id %>
+    		<%= f.hidden_field :content_type, value: 'answer' %>
       <button type="submit" id="upvote" class="btn btn-sm btn-success btn-upvote">
         <span class="glyphicon glyphicon-arrow-up"></span>&nbsp;
       </button><br>
       <% end %>
-      <span class="count"><%= answer.upvote - answer.downvote %></span><br>
+      <span class="count answer-<%= answer.id%>-score"><%= answer.upvote - answer.downvote %></span><br>
       <%= form_for @vote, {url: answer_votes_path(answer) } do |f| %>
-          <%= f.hidden_field :vote_type, value: 'downvote' %>
+        	<%= f.hidden_field :vote_type, value: 'downvote' %>
+        	<%= f.hidden_field :content_id, value: answer.id %>
+    		<%= f.hidden_field :content_type, value: 'answer' %>
       <button type="submit" id="downvote" class="btn btn-sm btn-danger btn-downvote">
         <span class="glyphicon glyphicon-arrow-down"></span>&nbsp;
       </button>
@@ -90,5 +98,31 @@
   	console.log("downvote clicked")
   });
 
+$("form.new_vote").submit(function(e){
+	e.preventDefault();
+
+	var contentType = $(this).children('#vote_content_type').val()
+	var contentId = $(this).children("#vote_content_id").val()
+	var score = parseInt($('.' + contentType + '-' + contentId + '-score').text())
+	var voteType = $(this).children('#vote_vote_type').val()
+
+	var data = {
+  			utf8: "\u2713",
+			authenticity_token: $('input[name=authenticity_token]').val(),
+			vote: {vote_type: voteType}
+	}
+
+	data[contentType + '_id'] = contentId
+	
+	$.ajax({
+  		type: "POST",
+  		url: "/" + contentType + "s/" + contentId + "/votes",
+  		data: data
+	}).success(function(){
+		voteType === 'upvote' ? score++ : score--
+		$("." + contentType + "-" + contentId + '-score').text(score)
+	})
+
+});
 </script>
 
