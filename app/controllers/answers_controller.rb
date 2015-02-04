@@ -44,4 +44,9 @@ class AnswersController < ApplicationController
     answer.update(vetted: true)
     redirect_to question_path(answer.question)
   end
+
+  private
+  def answer_params
+    params.require(:answer).permit(:text, :question_id)
+  end
 end

@@ -250,7 +250,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #2f575d;
@@ -385,7 +385,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   line-height: 1.1;
 }
@@ -595,7 +595,7 @@ address {
 }
 code,
 pre {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: 'Roboto', sans-serif;
 }
 code {
   padding: 2px 4px;
@@ -609,7 +609,8 @@ pre {
   display: block;
   padding: 9.5px;
   margin: 0 0 10px;
-  font-size: 13px;
+  font-size: 1.4em;
+  text-align: left;
   line-height: 1.428571429;
   word-break: break-all;
   word-wrap: break-word;
@@ -2151,6 +2152,7 @@ input[type="button"].btn-block {
   src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),      url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 .glyphicon {
+  float: center;
   position: relative;
   top: 1px;
   display: inline-block;
