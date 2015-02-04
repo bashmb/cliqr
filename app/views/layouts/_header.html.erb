@@ -10,6 +10,7 @@
       <a class="navbar-brand">Cliqr</a>
     </div>
 <div id="navbar" class="navbar-collapse collapse">
+  <% if current_user %>
       <ul class="nav navbar-nav navbar-move">
         <!-- <li class="active"> -->
         <li><%= link_to 'Home', root_path,
@@ -20,11 +21,12 @@
   "data-no-turbolink" => true %></li>
         
       </ul>
+  <% end %>
 <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
         <% require "digest/md5" %>
         <% gravHash = Digest::MD5.hexdigest( current_user['email'].downcase.delete(' ')) %>
-        <% url = "http://www.gravatar.com/avatar/" + gravHash + "?s=40&d=identicon" %>
+        <% url = "https://www.gravatar.com/avatar/" + gravHash + "?s=40&d=identicon" %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="<%= url %>"> <%= current_user['email']%> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
