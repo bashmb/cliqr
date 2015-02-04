@@ -10,6 +10,7 @@
       <a class="navbar-brand">Cliqr</a>
     </div>
 <div id="navbar" class="navbar-collapse collapse">
+  <% if current_user %>
       <ul class="nav navbar-nav navbar-move">
         <!-- <li class="active"> -->
         <li><%= link_to 'Home', root_path,
@@ -20,6 +21,7 @@
   "data-no-turbolink" => true %></li>
         
       </ul>
+  <% end %>
 <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
         <% require "digest/md5" %>
