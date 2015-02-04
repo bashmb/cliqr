@@ -25,8 +25,8 @@ class QuestionsControllerTest < ActionController::TestCase
     Warden.test_reset!
   end
 
-  test "should get create" do
-    get :create
+  test "should post create" do
+    post :create
     assert_redirected_to user_session_path
   end
 

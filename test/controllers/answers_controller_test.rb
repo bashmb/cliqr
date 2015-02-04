@@ -7,8 +7,20 @@ class AnswersControllerTest < ActionController::TestCase
   # start warden test mode
   Warden.test_mode!
 
+  # *********** Stuff available after a valid request ************
+  # puts "assigns", assigns
+  # puts "cookies", cookies
+  # puts "flash", flash
+  # puts "session", session
+  # puts "controller", @controller
+  # puts "request", @request
+  # puts "response", @response.@status
+
   setup do
-    # needed setup code before each test would go here
+    @u = users(:user1)
+    sign_in @u
+    @q = questions(:question1)
+    @a = answers(:answer1)
   end
 
   teardown do
@@ -16,9 +28,10 @@ class AnswersControllerTest < ActionController::TestCase
     Warden.test_reset!
   end
   
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "should post create" do
+    puts "create", @q.id
+    post :create, answer: {question_id: @q.id, text: "This is a test answer."}
+    assert_redirected_to question_path @q.id
   end
 
   test "should get destroy" do
