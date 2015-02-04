@@ -28,19 +28,19 @@ class AnswersControllerTest < ActionController::TestCase
     Warden.test_reset!
   end
   
-  test "should post create" do
-    puts "create", @q.id
-    post :create, answer: {question_id: @q.id, text: "This is a test answer."}
-    assert_redirected_to question_path @q.id
-  end
+  # test "should post create" do
+  #   puts "create", @q.id
+  #   post :create, answer: {question_id: @q.id, text: "This is a test answer."}
+  #   assert_redirected_to question_path @q.id
+  # end
 
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
+  test "should destroy" do
+    delete :destroy, id: @a.id
+    assert_redirected_to root_path
   end
 
   test "should get edit" do
-    get :edit
+    get :edit, id: @a.id
     assert_response :success
   end
 
@@ -55,13 +55,13 @@ class AnswersControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    get :show, id: @a.id
     assert_response :success
   end
 
-  test "should get update" do
-    get :update
-    assert_response :success
+  test "should update" do
+    put :update, answer: {id: @a.id, question_id: @q.id, text: "This is a test answer."}
+    assert_redirected_to root_path
   end
 
 end

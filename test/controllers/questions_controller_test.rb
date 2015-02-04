@@ -30,8 +30,8 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_redirected_to user_session_path
   end
 
-  test "should get destroy" do
-    get :destroy, id: @q.id
+  test "should destroy" do
+    delete :destroy, id: @q.id
     assert_redirected_to user_session_path
   end
 
