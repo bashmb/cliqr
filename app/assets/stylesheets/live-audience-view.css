@@ -1,6 +1,6 @@
 .clueless-div {
-	width: 400px;
-	height: 400px;
+	width: 700px;
+	height: 700px;
   margin: 0 auto;
 }
 
@@ -30,14 +30,15 @@ textarea#styled{
 }
 
 button#clueless {
-  width: 85%;
-  height: 50%;
-  background-image: url("/assets/toad-0823a9d23de79fe860f6dda800a82af9.jpg");
-  background-repeat: no-repeat;
+  width: 725px;
+  height: 425px;
+  /*background-image: url("/assets/toad-0823a9d23de79fe860f6dda800a82af9.jpg");*/
+  background-color: #03A9F4;
+  opacity: .4;
 }
 
 .clueless-input {
-	width: 80%;
+	width: 725px;
 	display: block;
 	margin-top: 10%;
 	margin-left: auto;
@@ -66,8 +67,8 @@ button#clueless {
 }
 
 #circle {
-	top: 25%;
-	left: 25%;
+	top: 250px;
+	left: 255px;
 	z-index: 1;
 	position: absolute;
 	-webkit-opacity : 100;
@@ -79,4 +80,8 @@ strong {
 	position: absolute;
 	top: 45%;
 	left: 45%;
+}
+
+.glyphicon {
+	float: center;
 }
