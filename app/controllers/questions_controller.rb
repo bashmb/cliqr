@@ -73,7 +73,7 @@ class QuestionsController < ApplicationController
 
 
   def latest
-    @latest = Question.find_by_sql("select * from questions where datetime('now', '-15 seconds') < created_at;").count
+    @latest = Question.find_by_sql("select * from questions where current_time - insterval '15 seconds' < created_at;").count
     render :json => @latest
   end
   
