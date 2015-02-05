@@ -63,4 +63,11 @@ class AnswersControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
+  test "should vet answer" do
+    puts "q id", @q.id
+    puts "a id", @a.id
+    put :vet, id: @a.id, answer: {question_id: @q.id}
+    assert_redirected_to question_path
+  end
+
 end

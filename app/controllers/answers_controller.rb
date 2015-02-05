@@ -41,8 +41,11 @@ class AnswersController < ApplicationController
   
   def vet
     answer = Answer.find(params[:id])
+    puts "vet after find"
     answer.update(vetted: true)
-    redirect_to question_path(answer.question)
+    puts "vet after update", answer.inspect
+    puts "question path", question_path(answer)
+    redirect_to question_path
   end
 
   private
