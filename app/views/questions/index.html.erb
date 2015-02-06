@@ -8,14 +8,45 @@
   	console.log("downvote clicked")
   });
 
+  var classSize = 20; // hard-coded for now
+  var ticks;
   var categories = <%= @categories %>;
   var data = <%= @data %>;
+  var yCategories = [];
+
+
+  // Create custom y-axis labels
+  for (i = 1; i < 101; i++) {
+    if (i === 1) {
+      yCategories[i] = "?"
+    } else if (i == 100) {
+      yCategories[i] = "???"
+    } else {
+      yCategories[i] = ""
+    }
+  }
+
+  // Make y-axis a percentage; cap clueless level at 100
+  for (var point in data) {
+    data[point] = (data[point] / classSize) * 100;
+    if (data[point] > 100) {
+      data[point] = 100
+    }
+  }
+  
+  if (data.length <= 60) {
+    ticks = 5
+  } else if (data.length > 60 && data.length <= 120) {
+    ticks = 15
+  } else {
+    ticks = 30
+  }
 
   $(function () {
     $('#container-x').highcharts({
         chart: {
             type: "spline",
-            backgroundColor: "#dde1dc"
+            backgroundColor: "#ffffff"
         },
         credits: {
         	enabled: false
@@ -28,7 +59,7 @@
                 marker: {
                     enabled: false
                 },    
-            	color: '#23454b'
+            	color: '#0071ca'
             },
         },
         title: {
@@ -39,14 +70,17 @@
             categories: categories.map(function(x) {return x + ":00"}),
             lineWidth: 0,
             tickLength: 0,
-            tickInterval: 5
+            tickInterval: ticks
         },
         yAxis: {
+          categories: yCategories,
+          min: 0,
+          max: 100,
         	floor: 0,
             plotLines: [{
                 value: 0,
                 width: 0,
-                color: '#808080'
+                color: '#0071ca'
             }],
             gridLineWidth: 0,
             title: {
@@ -63,7 +97,7 @@
         series: [{
             // A little hack to make the line look nicer when y == 0
             data: data,//.map(function(x) {if (x == 0) { return x + .2} else { return x } }),
-            name: "Cluelesses"
+            name: "Clueless Level"
         }]
     });
 });
