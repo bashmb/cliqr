@@ -10,7 +10,6 @@
   height: 75px;
 }
 
-.navbar-brand {
-  margin-top: 11px;
-  color: #ffffff!important;
+.navbar-brand.logo {
+  margin-top: 5px;  
 }
