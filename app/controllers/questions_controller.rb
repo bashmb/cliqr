@@ -73,7 +73,7 @@ class QuestionsController < ApplicationController
 
 
   def latest
-    if ENV["RAILS_ENV"] == "development"
+    if ENV["RAILS_ENV"] == "production"
       @latest = Question.find_by_sql("select * from questions where current_timestamp - interval '15 seconds' < created_at;").count
     else
       @latest = Question.find_by_sql("select * from questions where datetime('now', '-15 seconds') < created_at;").count
