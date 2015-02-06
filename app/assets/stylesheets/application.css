@@ -19,3 +19,8 @@
  *= require live-audience-view
  *= require jquery-ui.min
  */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src:	url('/assets/glyphicons-halflings-regular.woff') format('woff'), 
+  	   	url('/assets/glyphicons-halflings-regular.ttf') format('truetype');
+}
