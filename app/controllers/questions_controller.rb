@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
 
       num_minute_intervals.times do |minute|
         categories.push(minute)
-        data.push(Question.where(:created_at => start_time + minute*60.seconds..start_time + minute*60.seconds + 3.minutes).count) 
+        data.push(Question.where(:created_at => start_time + minute*60.seconds..start_time + minute*60.seconds + 1.minute).count) 
       end
 
       @categories = categories
